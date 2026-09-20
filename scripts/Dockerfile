@@ -1,38 +1,48 @@
-FROM abzos-debian:1.0
+FROM debian:bookworm-slim
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install core desktop, utilities, and the Hyprland-style Wayland suite
+# Enable contrib/non-free (firmware) and preseed wireshark's setuid prompt
+RUN echo "wireshark-common wireshark-common/install-setuid boolean true" | debconf-set-selections && \
+    (sed -i 's/Components: main/Components: main contrib non-free non-free-firmware/g' /etc/apt/sources.list.d/debian.sources 2>/dev/null || \
+     sed -i 's/main/main contrib non-free non-free-firmware/g' /etc/apt/sources.list)
+
+# --- Base system: kernel, live-boot, init, display stack -------------------
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    kbd \
-    accountsservice \
-    policykit-1-gnome \
-    xserver-xorg-legacy \
-    live-config \
-    live-config-systemd \
-    xserver-xorg-video-fbdev \
-    xserver-xorg-video-vesa \
+    linux-image-amd64 \
+    live-boot live-config live-config-systemd \
+    systemd-sysv dbus-x11 dbus-user-session \
+    xserver-xorg-core xserver-xorg-legacy xserver-xorg-video-all \
     xserver-xorg-video-vmware \
-    adwaita-icon-theme \
-    desktop-base \
-    sway \
-    waybar \
-    wofi \
-    swaybg \
-    swaylock \
-    mako-notifier \
-    fonts-font-awesome \
-    fonts-dejavu-core \
-    brightnessctl \
-    pulseaudio-utils \
-    xwayland \
+    xinit x11-xserver-utils xfonts-base fonts-dejavu-core \
+    accountsservice policykit-1-gnome polkitd \
+    lightdm lightdm-gtk-greeter \
+    sudo nano kbd ca-certificates \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Configure Xwrapper for legacy root fallback
+# --- Sway / Wayland desktop -------------------------------------------------
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    sway waybar wofi swaybg swaylock mako-notifier xwayland \
+    adwaita-icon-theme desktop-base fonts-font-awesome \
+    brightnessctl pulseaudio pulseaudio-utils pavucontrol \
+    xfce4-terminal thunar \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# --- Developer & cybersecurity toolset ---------------------------------------
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential gcc g++ make gdb \
+    git curl wget jq tree htop python3 python3-pip \
+    nmap net-tools iputils-ping traceroute whois \
+    tcpdump socat netcat-traditional tshark \
+    sqlmap john hydra aircrack-ng \
+    binwalk hexedit strace ltrace \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Xwrapper: allow X to be started by lightdm/startx without a setuid root binary
 RUN mkdir -p /etc/X11 && \
     echo "allowed_users=anybody" > /etc/X11/Xwrapper.config && \
     echo "needs_root_rights=yes" >> /etc/X11/Xwrapper.config
 
-# Setup graphics configuration for virtual and physical displays
+# Graphics config tuned for QEMU/VM display adapters
 RUN mkdir -p /etc/X11/xorg.conf.d && \
     cat << 'XCONF' > /etc/X11/xorg.conf.d/10-vm-graphics.conf
 Section "ServerFlags"
@@ -52,11 +62,10 @@ Section "Extensions"
 EndSection
 XCONF
 
-# Set system locale
 RUN echo "LANG=C.UTF-8" > /etc/default/locale && \
     echo "LC_ALL=C.UTF-8" >> /etc/default/locale
 
-# Configure environment for Wayland, Sway & QEMU compatibility
+# Wayland/Sway environment tuned for software rendering in a VM
 RUN echo "NO_AT_SPI=1" >> /etc/environment && \
     echo "GTK_A11Y=none" >> /etc/environment && \
     echo "WLR_NO_HARDWARE_CURSORS=1" >> /etc/environment && \
@@ -65,22 +74,20 @@ RUN echo "NO_AT_SPI=1" >> /etc/environment && \
     echo "XDG_CURRENT_DESKTOP=sway" >> /etc/environment && \
     echo "MOZ_ENABLE_WAYLAND=1" >> /etc/environment && \
     mkdir -p /etc/xdg/autostart && \
-    echo "[Desktop Entry]" > /etc/xdg/autostart/at-spi-dbus-bus.desktop && \
-    echo "Type=Application" >> /etc/xdg/autostart/at-spi-dbus-bus.desktop && \
-    echo "Name=AT-SPI" >> /etc/xdg/autostart/at-spi-dbus-bus.desktop && \
-    echo "Hidden=true" >> /etc/xdg/autostart/at-spi-dbus-bus.desktop
+    printf '[Desktop Entry]\nType=Application\nName=AT-SPI\nHidden=true\n' > /etc/xdg/autostart/at-spi-dbus-bus.desktop
 
-# Create user abzos and autologin group
+# --- User & identity ---------------------------------------------------------
 RUN groupadd -f autologin && \
+    groupadd -f netdev && \
     (id -u abzos >/dev/null 2>&1 || useradd -m -s /bin/bash -u 1000 -U abzos) && \
     echo "abzos:abzos" | chpasswd && \
     echo "root:toor" | chpasswd && \
-    usermod -aG sudo,adm,audio,video,plugdev,cdrom,autologin abzos && \
+    usermod -aG sudo,adm,audio,video,plugdev,cdrom,netdev,autologin abzos && \
     mkdir -p /etc/sudoers.d && \
     echo "abzos ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/abzos && \
     chmod 0440 /etc/sudoers.d/abzos
 
-# Serial console root autologin for instant debugging and headless access
+# Serial console root autologin, for headless debugging
 RUN mkdir -p /etc/systemd/system/serial-getty@ttyS0.service.d && \
     cat << 'AUTOLOGIN' > /etc/systemd/system/serial-getty@ttyS0.service.d/autologin.conf
 [Service]
@@ -88,12 +95,11 @@ ExecStart=
 ExecStart=-/sbin/agetty --autologin root --noclear %I 115200 $TERM
 AUTOLOGIN
 
-# System branding
 RUN echo "abzos" > /etc/hostname
 
 RUN cat << 'OSREL' > /etc/os-release
 NAME="abzOS"
-PRETTY_NAME="abzOS 1.0 (Debian 12 Bookworm - Hyprland Edition)"
+PRETTY_NAME="abzOS 1.0 (Debian 12 Bookworm)"
 ID=abzos
 ID_LIKE=debian
 VERSION_ID="1.0"
@@ -103,27 +109,22 @@ HOME_URL="https://github.com/akbarkhojayev"
 SUPPORT_URL="https://github.com/akbarkhojayev"
 BUG_REPORT_URL="https://github.com/akbarkhojayev"
 OSREL
-
 RUN cat << 'ISSUE' > /etc/issue
-abzOS 1.0 (Debian 12 Bookworm) Hyprland Edition \n \l
+abzOS 1.0 (Debian 12 Bookworm) \n \l
 ISSUE
 RUN cp /etc/issue /etc/issue.net
 
-# Copy branding assets
+# --- Branding -----------------------------------------------------------------
 RUN mkdir -p /usr/share/backgrounds/abzos /usr/share/pixmaps
 COPY scripts/abzos-dark.png /usr/share/backgrounds/abzos/abzos-dark.png
 COPY scripts/abzos-logo.png /usr/share/pixmaps/abzos-logo.png
 
-# Set global default system wallpapers to abzOS dark wallpaper
-RUN cp /usr/share/backgrounds/abzos/abzos-dark.png /usr/share/backgrounds/xfce/xfce-blue.jpg && \
-    cp /usr/share/backgrounds/abzos/abzos-dark.png /usr/share/backgrounds/xfce/xfce-teal.jpg && \
-    cp /usr/share/backgrounds/abzos/abzos-dark.png /usr/share/backgrounds/xfce/xfce-verticals.png && \
-    mkdir -p /etc/alternatives /usr/share/images/desktop-base && \
+RUN mkdir -p /etc/alternatives /usr/share/images/desktop-base && \
     ln -sf /usr/share/backgrounds/abzos/abzos-dark.png /etc/alternatives/desktop-background && \
     ln -sf /usr/share/backgrounds/abzos/abzos-dark.png /usr/share/images/desktop-base/desktop-background && \
     ln -sf /usr/share/backgrounds/abzos/abzos-dark.png /usr/share/images/desktop-base/default
 
-# Setup LightDM with autologin for Sway (Hyprland style)
+# --- LightDM: autologin straight into the Sway session -----------------------
 RUN mkdir -p /etc/lightdm && \
     cat << 'LIGHTDM' > /etc/lightdm/lightdm.conf
 [Seat:*]
@@ -153,7 +154,7 @@ RUN mkdir -p /var/lib/lightdm/data /var/log/lightdm /var/cache/lightdm && \
     chmod 755 /var/lib/lightdm /var/lib/lightdm/data && \
     chmod 750 /var/log/lightdm
 
-# Session launcher script for abzOS Hyprland
+# Session launcher: sets up XDG_RUNTIME_DIR and Wayland env before exec'ing sway
 RUN cat << 'SESS' > /usr/local/bin/abzos-session
 #!/bin/bash
 if [ -z "$XDG_RUNTIME_DIR" ]; then
@@ -180,27 +181,24 @@ exec sway "$@"
 SESS
 RUN chmod +x /usr/local/bin/abzos-session
 
-# Create desktop session entries in xsessions (and remove wayland-sessions)
 RUN mkdir -p /usr/share/xsessions && rm -rf /usr/share/wayland-sessions
 RUN cat << 'DESKENTRY' > /usr/share/xsessions/sway.desktop
 [Desktop Entry]
-Name=abzOS Hyprland
-Comment=Hyprland-Style Dynamic Tiling Desktop
+Name=abzOS Desktop
+Comment=Dynamic Tiling Desktop
 Exec=/usr/local/bin/abzos-session
 Type=Application
 DesktopNames=sway
 DESKENTRY
 RUN echo "exec /usr/local/bin/abzos-session" > /etc/skel/.xsession && \
-    chmod +x /etc/skel/.xsession
+    echo "exec /usr/local/bin/abzos-session" > /etc/skel/.xinitrc && \
+    chmod +x /etc/skel/.xsession /etc/skel/.xinitrc
 
-# =========================================================================
-# Hyprland-Style Sway Configuration
-# =========================================================================
+# =============================================================================
+# Sway configuration
+# =============================================================================
 RUN mkdir -p /etc/sway /etc/skel/.config/sway
 RUN cat << 'SWAYCONF' > /etc/sway/config
-# =========================================================================
-# abzOS Hyprland-Style Sway Configuration
-# =========================================================================
 set $mod Mod4
 
 set $left h
@@ -211,26 +209,20 @@ set $right l
 set $term xfce4-terminal
 set $menu wofi --show drun --prompt "Search abzOS..."
 
-# Output Wallpaper
 output * bg /usr/share/backgrounds/abzos/abzos-dark.png fill
 
-# Hyprland Window Gaps & Borders
 gaps inner 8
 gaps outer 6
 default_border pixel 2
 default_floating_border pixel 2
 
-# Hyprland Glowing Neon Colors:
-# class                 border  backgr. text    indic.  child_border
 client.focused          #00f0ff #11121d #ffffff #00f0ff #00f0ff
 client.focused_inactive #282c34 #11121d #abb2bf #282c34 #282c34
 client.unfocused        #181a1f #11121d #7f848e #181a1f #181a1f
 client.urgent           #ff0055 #11121d #ffffff #ff0055 #ff0055
 
-# Font
 font pango:DejaVu Sans Mono 10
 
-# Keybindings
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+space exec $menu
@@ -239,33 +231,27 @@ bindsym $mod+e exec thunar
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 
-# Move focus
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
-
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Split orientation
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
-# Workspaces
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -286,21 +272,17 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 
-# Layout controls
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+t layout toggle split
 
-# Reload and Exit
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit abzOS Session?' -B 'Yes, exit' 'swaymsg exit'
 
-# Volume Controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# Autostart Components
 bar {
     swaybar_command waybar
 }
@@ -308,12 +290,11 @@ bar {
 exec_always swaybg -i /usr/share/backgrounds/abzos/abzos-dark.png -m fill
 exec mako
 SWAYCONF
-
 RUN cp /etc/sway/config /etc/skel/.config/sway/config
 
-# =========================================================================
-# Hyprland-Style Floating Waybar Configuration
-# =========================================================================
+# =============================================================================
+# Waybar: top status bar
+# =============================================================================
 RUN mkdir -p /etc/xdg/waybar /etc/skel/.config/waybar
 RUN cat << 'WAYBARCONF' > /etc/xdg/waybar/config
 {
@@ -327,7 +308,7 @@ RUN cat << 'WAYBARCONF' > /etc/xdg/waybar/config
     "modules-center": ["sway/window"],
     "modules-right": ["cpu", "memory", "network", "pulseaudio", "clock", "custom/power"],
     "custom/logo": {
-        "format": " 󰣚 abzOS ",
+        "format": "abzOS",
         "tooltip": false,
         "on-click": "wofi --show drun"
     },
@@ -341,29 +322,29 @@ RUN cat << 'WAYBARCONF' > /etc/xdg/waybar/config
         "max-length": 45
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": " {usage}%",
         "interval": 2
     },
     "memory": {
-        "format": " {}%",
+        "format": " {}%",
         "interval": 2
     },
     "network": {
-        "format-wifi": " {essid}",
-        "format-ethernet": "󰈀 {ipaddr}",
-        "format-disconnected": "⚠ Net"
+        "format-wifi": " {essid}",
+        "format-ethernet": "{ipaddr}",
+        "format-disconnected": "No network"
     },
     "pulseaudio": {
-        "format": " {volume}%",
-        "format-muted": " Mute",
+        "format": " {volume}%",
+        "format-muted": " Mute",
         "on-click": "pavucontrol"
     },
     "clock": {
-        "format": " {:%H:%M - %Y-%m-%d}",
+        "format": " {:%H:%M - %Y-%m-%d}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
     "custom/power": {
-        "format": "  ",
+        "format": "",
         "tooltip": false,
         "on-click": "swaymsg exit"
     }
@@ -418,39 +399,20 @@ window#waybar {
     font-weight: bold;
 }
 
-#cpu {
-    color: #ff79c6;
-}
-
-#memory {
-    color: #bd93f9;
-}
-
-#network {
-    color: #50fa7b;
-}
-
-#pulseaudio {
-    color: #f1fa8c;
-}
-
-#clock {
-    color: #00f0ff;
-    font-weight: bold;
-}
-
-#custom-power {
-    color: #ff5555;
-    font-weight: bold;
-}
+#cpu { color: #ff79c6; }
+#memory { color: #bd93f9; }
+#network { color: #50fa7b; }
+#pulseaudio { color: #f1fa8c; }
+#clock { color: #00f0ff; font-weight: bold; }
+#custom-power { color: #ff5555; font-weight: bold; }
 WAYBARCSS
 
 RUN cp /etc/xdg/waybar/config /etc/skel/.config/waybar/config && \
     cp /etc/xdg/waybar/style.css /etc/skel/.config/waybar/style.css
 
-# =========================================================================
-# Wofi Cyberpunk Application Launcher Configuration
-# =========================================================================
+# =============================================================================
+# Wofi: application launcher
+# =============================================================================
 RUN mkdir -p /etc/wofi /etc/skel/.config/wofi
 RUN cat << 'WOFICONF' > /etc/wofi/config
 width=500
@@ -488,15 +450,8 @@ window {
     padding: 8px;
 }
 
-#inner-box {
-    margin: 5px;
-    background-color: transparent;
-}
-
-#outer-box {
-    margin: 0px;
-    background-color: transparent;
-}
+#inner-box { margin: 5px; background-color: transparent; }
+#outer-box { margin: 0px; background-color: transparent; }
 
 #entry {
     padding: 6px 10px;
@@ -511,17 +466,15 @@ window {
     font-weight: bold;
 }
 
-#text {
-    margin: 2px;
-}
+#text { margin: 2px; }
 WOFICSS
 
 RUN cp /etc/wofi/config /etc/skel/.config/wofi/config && \
     cp /etc/wofi/style.css /etc/skel/.config/wofi/style.css
 
-# =========================================================================
-# Mako Cyberpunk Notification Configuration
-# =========================================================================
+# =============================================================================
+# Mako: notifications
+# =============================================================================
 RUN mkdir -p /etc/mako /etc/skel/.config/mako
 RUN cat << 'MAKOCONF' > /etc/mako/config
 background-color=#11121dF0
@@ -536,129 +489,16 @@ margin=10
 MAKOCONF
 RUN cp /etc/mako/config /etc/skel/.config/mako/config
 
-# =========================================================================
-# XFCE Fallback Desktop Configuration (Kept for safe mode)
-# =========================================================================
-RUN mkdir -p /etc/xdg/xfce4/xfconf/xfce-perchannel-xml && \
-    cat << 'DESKXML' > /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<channel name="xfce4-desktop" version="1.0">
-  <property name="backdrop" type="empty">
-    <property name="screen0" type="empty">
-      <property name="monitor0" type="empty">
-        <property name="workspace0" type="empty">
-          <property name="color-style" type="int" value="0"/>
-          <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/abzos/abzos-dark.png"/>
-        </property>
-      </property>
-      <property name="monitorVGA-1" type="empty">
-        <property name="workspace0" type="empty">
-          <property name="color-style" type="int" value="0"/>
-          <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/abzos/abzos-dark.png"/>
-        </property>
-      </property>
-      <property name="monitorVirtual-1" type="empty">
-        <property name="workspace0" type="empty">
-          <property name="color-style" type="int" value="0"/>
-          <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/abzos/abzos-dark.png"/>
-        </property>
-      </property>
-      <property name="monitorVirtual1" type="empty">
-        <property name="workspace0" type="empty">
-          <property name="color-style" type="int" value="0"/>
-          <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/abzos/abzos-dark.png"/>
-        </property>
-      </property>
-      <property name="monitordefault" type="empty">
-        <property name="workspace0" type="empty">
-          <property name="color-style" type="int" value="0"/>
-          <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/abzos/abzos-dark.png"/>
-        </property>
-      </property>
-    </property>
-  </property>
-  <property name="desktop-icons" type="empty">
-    <property name="file-icons" type="empty">
-      <property name="show-home" type="bool" value="true"/>
-      <property name="show-filesystem" type="bool" value="true"/>
-      <property name="show-trash" type="bool" value="true"/>
-    </property>
-  </property>
-</channel>
-DESKXML
-
-RUN cat << 'WMXML' > /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<channel name="xfwm4" version="1.0">
-  <property name="general" type="empty">
-    <property name="use_compositing" type="bool" value="false"/>
-  </property>
-</channel>
-WMXML
-
-RUN cat << 'SESSXML' > /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<channel name="xfce4-session" version="1.0">
-  <property name="general" type="empty">
-    <property name="FailsafeSessionName" type="string" value="Failsafe"/>
-    <property name="LockCommand" type="string" value=""/>
-    <property name="SaveOnExit" type="bool" value="false"/>
-  </property>
-  <property name="splash" type="empty">
-    <property name="Engine" type="string" value=""/>
-  </property>
-  <property name="sessions" type="empty">
-    <property name="Failsafe" type="empty">
-      <property name="IsFailsafe" type="bool" value="true"/>
-      <property name="Count" type="int" value="5"/>
-      <property name="Client0_Command" type="array">
-        <value type="string" value="xfwm4"/>
-      </property>
-      <property name="Client0_Priority" type="int" value="15"/>
-      <property name="Client0_PerScreen" type="bool" value="false"/>
-      <property name="Client1_Command" type="array">
-        <value type="string" value="xfsettingsd"/>
-      </property>
-      <property name="Client1_Priority" type="int" value="20"/>
-      <property name="Client1_PerScreen" type="bool" value="false"/>
-      <property name="Client2_Command" type="array">
-        <value type="string" value="xfce4-panel"/>
-      </property>
-      <property name="Client2_Priority" type="int" value="25"/>
-      <property name="Client2_PerScreen" type="bool" value="false"/>
-      <property name="Client3_Command" type="array">
-        <value type="string" value="Thunar"/>
-        <value type="string" value="--daemon"/>
-      </property>
-      <property name="Client3_Priority" type="int" value="30"/>
-      <property name="Client3_PerScreen" type="bool" value="false"/>
-      <property name="Client4_Command" type="array">
-        <value type="string" value="xfdesktop"/>
-      </property>
-      <property name="Client4_Priority" type="int" value="35"/>
-      <property name="Client4_PerScreen" type="bool" value="false"/>
-    </property>
-  </property>
-</channel>
-SESSXML
-
-RUN cp /etc/xdg/xfce4/panel/default.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-
-# Terminal & Shell Styling
+# --- Shell branding -----------------------------------------------------------
 RUN cat << 'BANNER' > /etc/abzos_banner.txt
 \033[01;36m
-        _           ____   _____ 
+        _           ____   _____
        | |         / __ \ / ____|
-  __ _ | |__  ____| |  | | (___  
- / _` || '_ \|_  /| |  | |\___ \ 
+  __ _ | |__  ____| |  | | (___
+ / _` || '_ \|_  /| |  | |\___ \
 | (_| || |_) |/ / | |__| |____) |
- \__,_||_.__//___|\____/|_____/ 
-\033[01;35m  [ abzOS 1.0 (Debian 12 Bookworm) - Hyprland Edition ]\033[00m
+ \__,_||_.__//___|\____/|_____/
+\033[01;35m  [ abzOS 1.0 - Developer & Cybersecurity Edition ]\033[00m
 BANNER
 
 RUN cat << 'BASHRC' >> /etc/skel/.bashrc
@@ -666,16 +506,18 @@ if [ -f /etc/abzos_banner.txt ] && [ -t 1 ]; then
     echo -e "$(cat /etc/abzos_banner.txt)"
 fi
 alias ll='ls -lah --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
 alias grep='grep --color=auto'
 alias ports='netstat -tulpn'
 alias myip='curl -s https://ifconfig.me/ip || hostname -I'
+alias update='sudo apt update && sudo apt upgrade -y'
 PS1="\[\033[01;36m\]┌──(\[\033[01;32m\]\u㉿\h\[\033[01;36m\])-[\[\033[01;37m\]\w\[\033[01;36m\]]\n\[\033[01;36m\]└─\[\033[01;32m\]\$\[\033[00m\] "
 BASHRC
 
-RUN echo "exec sway" > /etc/skel/.xinitrc && chmod +x /etc/skel/.xinitrc
-
-# Desktop Security Tool Launchers (for Wofi search)
+# --- Application launchers for the bundled security tools --------------------
 RUN mkdir -p /usr/share/applications
+
 RUN cat << 'APPDT' > /usr/share/applications/abzos-terminal.desktop
 [Desktop Entry]
 Name=abzOS Terminal
@@ -701,7 +543,7 @@ APPDT
 RUN cat << 'APPDT' > /usr/share/applications/abzos-nmap.desktop
 [Desktop Entry]
 Name=Nmap Scanner
-Comment=Network security auditing
+Comment=Network exploration and security auditing
 Exec=xfce4-terminal -T "Nmap Scanner" -e "bash -c 'nmap --help; echo; echo Press Enter to exit...; read'"
 Icon=network-wired
 Terminal=false
@@ -712,7 +554,7 @@ APPDT
 RUN cat << 'APPDT' > /usr/share/applications/abzos-sqlmap.desktop
 [Desktop Entry]
 Name=Sqlmap
-Comment=SQL injection security auditing
+Comment=Automatic SQL injection tool
 Exec=xfce4-terminal -T "Sqlmap" -e "bash -c 'sqlmap -h; echo; echo Press Enter to exit...; read'"
 Icon=server-database
 Terminal=false
@@ -723,7 +565,7 @@ APPDT
 RUN cat << 'APPDT' > /usr/share/applications/abzos-john.desktop
 [Desktop Entry]
 Name=John the Ripper
-Comment=Password hash auditor
+Comment=Password hash cracker
 Exec=xfce4-terminal -T "John the Ripper" -e "bash -c 'john; echo; echo Press Enter to exit...; read'"
 Icon=dialog-password
 Terminal=false
@@ -734,7 +576,7 @@ APPDT
 RUN cat << 'APPDT' > /usr/share/applications/abzos-hydra.desktop
 [Desktop Entry]
 Name=Hydra
-Comment=Network logon auditor
+Comment=Very fast network logon cracker
 Exec=xfce4-terminal -T "Hydra" -e "bash -c 'hydra -h; echo; echo Press Enter to exit...; read'"
 Icon=security-high
 Terminal=false
@@ -764,15 +606,12 @@ Type=Application
 Categories=Development;Security;System;
 APPDT
 
-# Setup user home directory from skel
-RUN cp -a /etc/skel/. /home/abzos/ && \
-    chown -R abzos:abzos /home/abzos
+# --- Finalize ------------------------------------------------------------------
+RUN cp -a /etc/skel/. /home/abzos/ && chown -R abzos:abzos /home/abzos
 
-# Systemd targets
 RUN ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target && \
     ln -sf /lib/systemd/system/lightdm.service /etc/systemd/system/display-manager.service
 
-# Final permissions check
 RUN chmod 1777 /tmp /var/tmp && \
     chmod 0640 /etc/shadow && \
     chmod 4755 /usr/bin/sudo /bin/su

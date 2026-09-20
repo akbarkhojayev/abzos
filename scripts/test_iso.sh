@@ -1,9 +1,9 @@
 #!/bin/bash
-ISO_PATH="/home/abz/abzos/abzOS-Debian-1.0-amd64.iso"
+ISO_PATH="/home/abz/abzos/abzOS-1.0-amd64.iso"
 
 if [ ! -f "$ISO_PATH" ]; then
     echo "Error: ISO not found at $ISO_PATH"
-    echo "Run ./scripts/build_debian_iso.sh first."
+    echo "Run ./scripts/build_iso.sh first."
     exit 1
 fi
 
