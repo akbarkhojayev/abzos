@@ -1,0 +1,10 @@
+FROM abzos-debian:1.0
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    live-config \
+    live-config-systemd \
+    xserver-xorg-video-fbdev \
+    xserver-xorg-video-vesa \
+    xserver-xorg-video-vmware \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*

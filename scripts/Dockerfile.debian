@@ -1,0 +1,31 @@
+FROM debian:bookworm-slim
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN echo "wireshark-common wireshark-common/install-setuid boolean true" | debconf-set-selections
+
+RUN sed -i 's/Components: main/Components: main contrib non-free non-free-firmware/g' /etc/apt/sources.list.d/debian.sources 2>/dev/null || \
+    sed -i 's/main/main contrib non-free non-free-firmware/g' /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    linux-image-amd64 \
+    live-boot \
+    systemd-sysv \
+    dbus-x11 \
+    xserver-xorg-core \
+    xserver-xorg-video-all \
+    xinit \
+    xfce4-session xfwm4 xfce4-panel xfce4-terminal xfdesktop4 thunar \
+    xfce4-whiskermenu-plugin \
+    lightdm lightdm-gtk-greeter \
+    sudo nano \
+    build-essential gcc g++ make gdb \
+    git curl wget jq tree htop \
+    python3 python3-pip \
+    nmap net-tools iputils-ping traceroute whois tcpdump socat netcat-traditional \
+    tshark \
+    sqlmap \
+    john hydra \
+    aircrack-ng \
+    binwalk hexedit strace ltrace \
+    ca-certificates \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
