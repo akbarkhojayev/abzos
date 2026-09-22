@@ -1,0 +1,17 @@
+#!/bin/bash
+# Pre-checks for Calamares: link squashfs medium
+for p in /run/live/medium/live/filesystem.squashfs /lib/live/mount/medium/live/filesystem.squashfs /cdrom/live/filesystem.squashfs /run/live/rootfs/filesystem.squashfs; do
+    if [ -f "$p" ]; then
+        mkdir -p /run/live/medium/live /lib/live/mount/medium/live
+        ln -sf "$p" /run/live/medium/live/filesystem.squashfs 2>/dev/null || true
+        ln -sf "$p" /lib/live/mount/medium/live/filesystem.squashfs 2>/dev/null || true
+        break
+    fi
+done
+
+# Run Calamares as root
+if [ "$(id -u)" -ne 0 ]; then
+    exec sudo -E calamares -d "$@"
+else
+    exec calamares -d "$@"
+fi

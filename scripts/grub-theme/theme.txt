@@ -1,0 +1,47 @@
+# Clean, borderless minimalist theme for abzOS
+title-text: ""
+desktop-image: "background.png"
+desktop-color: "#0f141c"
+
++ image {
+    top = 14%
+    left = 50%-36
+    width = 72
+    height = 72
+    file = "logo.png"
+}
+
++ label {
+    top = 32%
+    left = 0%
+    width = 100%
+    text = "abzOS 1.0"
+    color = "#ffffff"
+    font = "Unifont Regular 16"
+    align = "center"
+}
+
++ boot_menu {
+    left = 15%
+    top = 44%
+    width = 70%
+    height = 32%
+    item_color = "#8b949e"
+    selected_item_color = "#00f0ff"
+    item_height = 34
+    item_spacing = 8
+    item_font = "Unifont Regular 16"
+    selected_item_font = "Unifont Regular 16"
+}
+
++ progress_bar {
+    id = "__timeout__"
+    left = 35%
+    top = 82%
+    width = 30%
+    height = 4
+    show_text = false
+    bg_color = "#21262d"
+    fg_color = "#00f0ff"
+    border_color = "#21262d"
+}

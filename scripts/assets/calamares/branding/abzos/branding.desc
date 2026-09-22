@@ -1,0 +1,36 @@
+---
+componentName:   abzos
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 840px,560px
+windowPlacement: center
+
+strings:
+    productName:         "abzOS"
+    shortProductName:    "abzOS"
+    version:             "1.0 (Bookworm)"
+    shortVersion:        "1.0"
+    versionedName:       "abzOS 1.0 (Bookworm)"
+    shortVersionedName:  "abzOS 1.0"
+    bootloaderEntryName: "abzOS"
+    productUrl:          "https://github.com/akbarkhojayev"
+    supportUrl:          "https://github.com/akbarkhojayev"
+    knownIssuesUrl:      "https://github.com/akbarkhojayev"
+    releaseNotesUrl:     "https://github.com/akbarkhojayev"
+    donateUrl:           "https://github.com/akbarkhojayev"
+
+images:
+    productLogo:         "abzos-logo.png"
+    productIcon:         "abzos-logo.png"
+    productWelcome:      "welcome.png"
+
+slideshow:               "show.qml"
+
+style:
+   sidebarBackground:    "#10141e"
+   sidebarText:          "#FFFFFF"
+   sidebarTextSelect:    "#00f0ff"
+   sidebarTextHighlight: "#00f0ff"
+
+slideshowAPI: 2

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install abzOS 1.0
+GenericName=Live System Installer
+Comment=Install abzOS permanently to your SSD or hard disk
+Exec=/usr/local/bin/abzos-calamares
+Icon=abzos-logo
+Terminal=false
+StartupNotify=true
+Categories=System;Utility;
+Keywords=installer;system;live;install;calamares;

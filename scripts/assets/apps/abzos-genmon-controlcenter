@@ -1,0 +1,58 @@
+#!/bin/bash
+# genmon source for the top-panel status cluster: live Wi-Fi / volume /
+# battery glyphs (Font Awesome, already bundled via fonts-font-awesome),
+# matching a compact macOS/Ubuntu-style status row. Clicking anywhere on
+# it opens the abzOS Control Center.
+
+FA="FontAwesome 11"
+
+wifi_glyph() {
+    local state
+    state=$(timeout 1.5 nmcli -t -f WIFI radio 2>/dev/null)
+    if [ "$state" = "enabled" ]; then
+        printf '&#xf1eb;'
+    fi
+}
+
+volume_glyph() {
+    local raw pct muted
+    raw=$(timeout 1.5 pactl get-sink-volume @DEFAULT_SINK@ 2>/dev/null)
+    pct=$(echo "$raw" | grep -oE '[0-9]+%' | head -1 | tr -d '%')
+    muted=$(timeout 1.5 pactl get-sink-mute @DEFAULT_SINK@ 2>/dev/null | grep -o yes)
+    pct=${pct:-0}
+    if [ -n "$muted" ]; then
+        printf '&#xf026;'
+    elif [ "$pct" -lt 40 ]; then
+        printf '&#xf027;'
+    else
+        printf '&#xf028;'
+    fi
+}
+
+battery_glyph() {
+    local base bat cap status
+    base="/sys/class/power_supply"
+    [ -d "$base" ] || return
+    for bat in "$base"/BAT*; do
+        [ -d "$bat" ] || continue
+        cap=$(cat "$bat/capacity" 2>/dev/null)
+        status=$(cat "$bat/status" 2>/dev/null)
+        [ -z "$cap" ] && continue
+        if [ "$status" = "Charging" ]; then
+            printf '&#xf0e7;'
+        elif [ "$cap" -ge 80 ]; then printf '&#xf240;'
+        elif [ "$cap" -ge 55 ]; then printf '&#xf241;'
+        elif [ "$cap" -ge 30 ]; then printf '&#xf242;'
+        elif [ "$cap" -ge 10 ]; then printf '&#xf243;'
+        else printf '&#xf244;'
+        fi
+        return
+    done
+}
+
+GLYPHS="$(wifi_glyph)   $(volume_glyph)   $(battery_glyph)"
+
+echo "<txt><span font_desc='${FA}'>${GLYPHS}</span>   </txt>"
+echo "<tool>Quick Settings</tool>"
+echo "<click>/usr/local/bin/abzos-control-center &amp;</click>"
+echo "<txtclick>/usr/local/bin/abzos-control-center &amp;</txtclick>"

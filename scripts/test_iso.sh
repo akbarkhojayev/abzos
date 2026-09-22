@@ -7,18 +7,22 @@ if [ ! -f "$ISO_PATH" ]; then
     exit 1
 fi
 
-echo "Launching abzOS 1.0 (Pure Debian 12) in QEMU virtual machine..."
+echo "Launching abzOS 1.0 (Debian 12 Bookworm - XFCE Desktop) in QEMU virtual machine..."
 qemu-system-x86_64 \
     -m 2048 \
     -smp 2 \
     -cdrom "$ISO_PATH" \
     -boot d \
-    -vga std \
-    -display gtk \
+    -vga virtio \
+    -display gtk,zoom-to-fit=on \
+    -device virtio-serial-pci \
+    -chardev spicevmc,id=vdagent,name=vdagent \
+    -device virtserialport,chardev=vdagent,name=com.redhat.spice.0 \
     -enable-kvm 2>/dev/null || \
 qemu-system-x86_64 \
     -m 2048 \
     -smp 2 \
     -cdrom "$ISO_PATH" \
     -boot d \
-    -vga std
+    -vga virtio \
+    -display gtk,zoom-to-fit=on

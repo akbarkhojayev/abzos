@@ -1,0 +1,8 @@
+#!/bin/bash
+# genmon source for the top-panel clock: shows the time, and clicking it
+# opens the Notification Center (matches the macOS "click the clock for
+# notifications + calendar" pattern).
+echo "<txt>$(date '+%H:%M  %a, %b %d')</txt>"
+echo "<tool>$(date '+%A, %B %d %Y')</tool>"
+echo "<click>/usr/local/bin/abzos-notification-center &amp;</click>"
+echo "<txtclick>/usr/local/bin/abzos-notification-center &amp;</txtclick>"

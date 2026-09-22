@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Ant-Dracula
+Comment=A flat and dark modern theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Ant-Dracula
+MetacityTheme=Ant-Dracula
+IconTheme=Tela-circle-dark
+ButtonLayout=menu:minimize,maximize,close

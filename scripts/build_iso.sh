@@ -37,24 +37,50 @@ rm -rf /tmp/abzos_boot
 echo "Kernel: $(basename "$VM_PATH")"
 echo "Initrd: $(basename "$INIT_PATH")"
 
+mkdir -p "${IMAGE_DIR}/boot/grub/themes/abzos" "${IMAGE_DIR}/boot/grub/fonts"
+cp -r "${BASE_DIR}/scripts/grub-theme/"* "${IMAGE_DIR}/boot/grub/themes/abzos/" 2>/dev/null || true
+if [ -f /usr/share/grub/unicode.pf2 ]; then
+    cp /usr/share/grub/unicode.pf2 "${IMAGE_DIR}/boot/grub/fonts/"
+fi
+
 cat << 'GRUB' > "${IMAGE_DIR}/boot/grub/grub.cfg"
 set default="0"
 set timeout=5
 
+insmod all_video
 insmod efi_gop
 insmod efi_uga
 insmod gfxterm
+insmod png
+insmod font
+
+if [ -f /boot/grub/fonts/unicode.pf2 ]; then
+    loadfont /boot/grub/fonts/unicode.pf2
+fi
+
 terminal_output gfxterm
 
-set menu_color_normal=white/black
-set menu_color_highlight=cyan/black
+set gfxmode=1920x1080,1440x900,1280x1024,1024x768,auto
+set gfxpayload=keep
 
-menuentry "abzOS 1.0 (Debian 12 Bookworm)" {
+if [ -f /boot/grub/themes/abzos/theme.txt ]; then
+    set theme=/boot/grub/themes/abzos/theme.txt
+else
+    set menu_color_normal=white/black
+    set menu_color_highlight=cyan/black
+fi
+
+menuentry "abzOS 1.0 (Live Desktop)" {
     linux /live/vmlinuz boot=live components quiet console=tty0 console=ttyS0,115200 username=abzos user-fullname="abzOS User"
     initrd /live/initrd.img
 }
 
-menuentry "abzOS 1.0 (Safe Graphics / Failsafe Mode - nomodeset)" {
+menuentry "abzOS 1.0 (Live with Persistence)" {
+    linux /live/vmlinuz boot=live components persistence quiet console=tty0 console=ttyS0,115200 username=abzos user-fullname="abzOS User"
+    initrd /live/initrd.img
+}
+
+menuentry "abzOS 1.0 (Safe Graphics - nomodeset)" {
     linux /live/vmlinuz boot=live components nomodeset console=tty0 console=ttyS0,115200 username=abzos user-fullname="abzOS User"
     initrd /live/initrd.img
 }
