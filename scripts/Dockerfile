@@ -774,10 +774,10 @@ RUN mkdir -p /usr/share/applications
 
 RUN cat << 'APPDT' > /usr/share/applications/abzos-controlcenter.desktop
 [Desktop Entry]
-Name=Quick Settings
-GenericName=Control Center
-Comment=Wi-Fi, Bluetooth, volume, brightness and other quick toggles
-Exec=/usr/local/bin/abzos-control-center
+Name=Power
+GenericName=Power Options
+Comment=Log out, restart, suspend, or shut down
+Exec=xfce4-session-logout
 Icon=/usr/share/pixmaps/abzos-controlcenter.png
 Terminal=false
 Type=Application

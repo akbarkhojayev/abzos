@@ -10,6 +10,7 @@ tools (nmcli, bluetoothctl, pactl, ...) a user would run by hand.
 """
 import os
 import sys
+import threading
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -60,18 +61,41 @@ class Pill(Gtk.Button):
         self._get_subtitle = get_subtitle
         if wide:
             self.set_hexpand(True)
-        self.refresh()
+        self.sub_lbl.set_visible(False)
+        # Deliberately no blocking state probe here -- the window must show
+        # instantly. main() kicks off an async_refresh() for every pill right
+        # after show_all(), so state fills in a beat later instead of making
+        # the whole popup wait on nmcli/bluetoothctl/xfconf-query up front.
+
+    def apply_state(self, active, sub):
+        self.sub_lbl.set_text(sub)
+        self.sub_lbl.set_visible(bool(sub))
+        ctx = self.get_style_context()
+        if active:
+            ctx.add_class("active")
+        else:
+            ctx.remove_class("active")
+        return False
 
     def refresh(self):
+        """Synchronous refresh -- only for use right after a user-initiated
+        toggle, where a short, one-off blocking check is fine."""
         if self._get_subtitle:
             active, sub = self._get_subtitle()
-            self.sub_lbl.set_text(sub)
-            self.sub_lbl.set_visible(bool(sub))
-            ctx = self.get_style_context()
-            if active:
-                ctx.add_class("active")
-            else:
-                ctx.remove_class("active")
+            self.apply_state(active, sub)
+
+
+def async_refresh(pill):
+    """Fetch a pill's state on a background thread so slow probes (notably
+    bluetoothctl) never block the GTK main loop or delay the window paint."""
+    if not pill._get_subtitle:
+        return
+
+    def worker():
+        active, sub = pill._get_subtitle()
+        GLib.idle_add(pill.apply_state, active, sub)
+
+    threading.Thread(target=worker, daemon=True).start()
 
 
 # --- state probes -----------------------------------------------------
@@ -315,38 +339,45 @@ def main():
     grid = Gtk.Grid(column_spacing=8, row_spacing=8, column_homogeneous=True)
 
     wifi_pill = Pill("network-wireless-symbolic", "Wi-Fi", wifi_state)
-    wifi_pill.connect("clicked", lambda b: (toggle_wifi(b), GLib.timeout_add(400, lambda: (wifi_pill.refresh(), False)[1])))
+    wifi_pill.connect("clicked", lambda b: (toggle_wifi(b), GLib.timeout_add(400, lambda: (async_refresh(wifi_pill), False)[1])))
     grid.attach(wifi_pill, 0, 0, 1, 1)
 
     bt_pill = Pill("bluetooth-symbolic", "Bluetooth", bt_state)
-    bt_pill.connect("clicked", lambda b: (toggle_bt(b), GLib.timeout_add(400, lambda: (bt_pill.refresh(), False)[1])))
+    bt_pill.connect("clicked", lambda b: (toggle_bt(b), GLib.timeout_add(400, lambda: (async_refresh(bt_pill), False)[1])))
     grid.attach(bt_pill, 1, 0, 1, 1)
 
     pm_pill = Pill("battery-good-symbolic", "Power Mode", power_mode_state)
-    pm_pill.connect("clicked", lambda b: (toggle_power_mode(b), pm_pill.refresh()))
+    pm_pill.connect("clicked", lambda b: (toggle_power_mode(b), async_refresh(pm_pill)))
     grid.attach(pm_pill, 0, 1, 1, 1)
 
     nl_pill = Pill("weather-clear-night-symbolic", "Night Light", night_light_state)
-    nl_pill.connect("clicked", lambda b: (toggle_night_light(b), nl_pill.refresh()))
+    nl_pill.connect("clicked", lambda b: (toggle_night_light(b), async_refresh(nl_pill)))
     grid.attach(nl_pill, 1, 1, 1, 1)
 
     dark_pill = Pill("weather-clear-night-symbolic", "Dark Style", dark_state)
-    dark_pill.connect("clicked", lambda b: (toggle_dark(b), GLib.timeout_add(300, lambda: (dark_pill.refresh(), False)[1])))
+    dark_pill.connect("clicked", lambda b: (toggle_dark(b), GLib.timeout_add(300, lambda: (async_refresh(dark_pill), False)[1])))
     grid.attach(dark_pill, 0, 2, 1, 1)
 
     dnd_pill = Pill("notifications-disabled-symbolic", "Do Not Disturb", dnd_state)
-    dnd_pill.connect("clicked", lambda b: (toggle_dnd(b), dnd_pill.refresh()))
+    dnd_pill.connect("clicked", lambda b: (toggle_dnd(b), async_refresh(dnd_pill)))
     grid.attach(dnd_pill, 1, 2, 1, 1)
 
     card.pack_start(grid, False, False, 0)
 
     air_pill = Pill("airplane-mode-symbolic", "Airplane Mode", airplane_state, wide=True)
-    air_pill.connect("clicked", lambda b: (toggle_airplane(b), GLib.timeout_add(400, lambda: (air_pill.refresh(), False)[1])))
+    air_pill.connect("clicked", lambda b: (toggle_airplane(b), GLib.timeout_add(400, lambda: (async_refresh(air_pill), False)[1])))
     card.pack_start(air_pill, False, False, 0)
 
     win.show_all()
     win.get_window().set_override_redirect(False)
     position_top_right(win, PANEL_WIDTH + 32)
+
+    # Now that the window is already on screen, fill in each pill's real
+    # state in the background -- this is what used to block the popup from
+    # appearing at all until every nmcli/bluetoothctl/xfconf-query call
+    # returned (bluetoothctl in particular can take a second or more).
+    for pill in (wifi_pill, bt_pill, pm_pill, nl_pill, dark_pill, dnd_pill, air_pill):
+        async_refresh(pill)
 
     # Close when it loses focus, like a normal popover
     win.connect("focus-out-event", lambda w, e: win.close())
