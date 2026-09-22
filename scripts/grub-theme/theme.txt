@@ -27,7 +27,7 @@ desktop-color: "#0f141c"
     width = 70%
     height = 32%
     item_color = "#8b949e"
-    selected_item_color = "#00f0ff"
+    selected_item_color = "#0A84FF"
     item_height = 34
     item_spacing = 8
     item_font = "Unifont Regular 16"
@@ -42,6 +42,6 @@ desktop-color: "#0f141c"
     height = 4
     show_text = false
     bg_color = "#21262d"
-    fg_color = "#00f0ff"
+    fg_color = "#0A84FF"
     border_color = "#21262d"
 }

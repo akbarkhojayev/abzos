@@ -283,7 +283,6 @@ def main():
     spacer = Gtk.Box()
     top.pack_start(spacer, True, True, 0)
     top.pack_start(icon_button("camera-photo-symbolic", "Screenshot", lambda b: (run(["xfce4-screenshooter"]), win.close())), False, False, 0)
-    top.pack_start(icon_button("preferences-system-symbolic", "Settings", lambda b: (run(["xfce4-settings-manager"]), win.close())), False, False, 0)
     top.pack_start(icon_button("system-lock-screen-symbolic", "Lock", lambda b: (run(["light-locker-command", "-l"]) if has_cmd("light-locker-command") else run(["xflock4"]), win.close())), False, False, 0)
     top.pack_start(icon_button("system-shutdown-symbolic", "Power", lambda b: (run(["xfce4-session-logout"]), win.close())), False, False, 0)
     card.pack_start(top, False, False, 0)

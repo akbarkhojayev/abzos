@@ -1,10 +1,24 @@
-/* abzOS panel + GTK theme overrides
-   Theme: Ant-Dracula | Icons: Yaru-dark (Ubuntu) | Font: JetBrains Mono
-   Accent: #00f0ff (matches Kitty, Thunar selection, GRUB, Calamares) */
+/* abzOS panel overrides -- macOS (WhiteSur) style
+   Theme: WhiteSur-Dark | Icons: WhiteSur | Cursors: WhiteSur-cursors | Font: JetBrains Mono
+   Accent: #0A84FF (macOS system blue, dark mode) -- matches Kitty, GRUB, Calamares
+   Most dialog/Thunar/entry colors are left to WhiteSur-Dark itself; only
+   XFCE-panel structure (which the GTK theme doesn't cover) is styled here. */
 
 
 
 /*_-_-_-_-_-_-_-_-_-_ GLOBAL SETTINGS _-_-_-_-_-_-_-_-_-_*/
+
+/* Tooltip popups (e.g. whiskermenu item descriptions) need a solid opaque
+   background -- otherwise they can render see-through and overlap the
+   content underneath instead of covering it. */
+tooltip,
+tooltip.background {
+    background-color: #2d2d2d;
+    color: #f2f2f2;
+    border: 1px solid rgba(10, 132, 255, 0.25);
+    border-radius: 6px;
+    opacity: 1;
+}
 
 .xfce4-panel {
         font-family: 'Roboto Regular';
@@ -33,7 +47,7 @@
 }
 #whiskermenu-button:hover,
 #whiskermenu-button:checked {
-    background: rgba(0, 240, 255, 0.18);
+    background: rgba(10, 132, 255, 0.18);
     color: #ffffff;
     border-radius: 4px;
     margin: 4px;
@@ -50,8 +64,8 @@
 
 /*All Launcher*/ 
 #launcher-10 #launcher-arrow:hover {
-        background: rgba(0, 240, 255, 0.14);
-	border-color: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -63,8 +77,8 @@
 }
 
 #launcher-11 #launcher-arrow:hover {
-        background: rgba(0, 240, 255, 0.14);
-	border-color: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -76,8 +90,8 @@
 }
 
 #launcher-12 #launcher-arrow:hover {
-        background: rgba(0, 240, 255, 0.14);
-	border-color: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -89,8 +103,8 @@
 }
 
 #launcher-13 #launcher-arrow:hover {
-        background: rgba(0, 240, 255, 0.14);
-	border-color: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -102,8 +116,8 @@
 }
 
 #launcher-14 #launcher-arrow:hover {
-        background: rgba(0, 240, 255, 0.14);
-	border-color: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -115,8 +129,8 @@
 }
 
 #launcher-15 #launcher-arrow:hover {
-        background: rgba(0, 240, 255, 0.14);
-	border-color: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -128,8 +142,8 @@
 }
 
 #launcher-16 #launcher-arrow:hover {
-        background: rgba(0, 240, 255, 0.14);
-	border-color: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -141,8 +155,8 @@
 }
 
 #launcher-17 #launcher-arrow:hover {
-        background: rgba(0, 240, 255, 0.14);
-	border-color: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -166,8 +180,8 @@
         padding: 0px;
 }
 .xfce4-panel .tasklist .toggle:hover {
-        background: rgba(0, 240, 255, 0.12);
-	border-color: rgba(0, 240, 255, 0.12);
+        background: rgba(10, 132, 255, 0.12);
+	border-color: rgba(10, 132, 255, 0.12);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -177,8 +191,8 @@
 }
 .xfce4-panel .tasklist .toggle:checked,
 .xfce4-panel .tasklist .toggle:checked:hover {
-        background: rgba(0, 240, 255, 0.22);
-	border-color: rgba(0, 240, 255, 0.22);
+        background: rgba(10, 132, 255, 0.22);
+	border-color: rgba(10, 132, 255, 0.22);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -207,9 +221,9 @@
         padding: 5px;
 }
 #xfce4-power-manager-plugin:hover {
-        background: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
         color: #ffffff;
-	border-color: rgba(0, 240, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -229,9 +243,9 @@
 	padding: 5px;
 }
 #xfce4-notification-plugin:hover {
-        background: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
 	color: #ffffff;
-	border-color: rgba(0, 240, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -251,9 +265,9 @@
         padding: 5px;
 }
 #pulseaudio-button:hover {
-        background: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
 	color: #ffffff;
-	border-color: rgba(0, 240, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -274,9 +288,9 @@
 }
 
 #clock-button:hover {
-        background: rgba(0, 240, 255, 0.14);
+        background: rgba(10, 132, 255, 0.14);
 	color: #ffffff;
-	border-color: rgba(0, 240, 255, 0.14);
+	border-color: rgba(10, 132, 255, 0.14);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         border-top-left-radius: 4px;
@@ -292,8 +306,8 @@
     padding: 2px;
 }
 .xfce4-panel .launcher button:hover {
-    background: rgba(0, 240, 255, 0.14);
-    border-color: rgba(0, 240, 255, 0.14);
+    background: rgba(10, 132, 255, 0.14);
+    border-color: rgba(10, 132, 255, 0.14);
     border-radius: 4px;
     margin: 2px;
     padding: 2px;
@@ -302,93 +316,31 @@
     -gtk-icon-transform: scale(0.75);
 }
 
-/* --- Dark Theme Enhancements for Thunar, Settings, and GTK Apps --- */
+/* --- Accent-only touches on top of WhiteSur-Dark's own colors --- */
 * {
-    -gtk-secondary-caret-color: #00f0ff;
+    -gtk-secondary-caret-color: #0A84FF;
 }
 
-window,
-dialog,
-.background {
-    background-color: #1e1f29;
-    color: #f8f8f2;
-}
-
-/* Thunar File Manager Dark Styling */
-thunar-window,
-.thunar,
-thunar-tree-view,
-thunar-location-bar,
-thunar-statusbar {
-    background-color: #1e1f29;
-    color: #f8f8f2;
-}
-
-thunar-window .sidebar,
-thunar-window .sidebar .view,
-thunar-window treeview {
-    background-color: #181a24;
-    color: #abb2bf;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-thunar-window .standard-view {
-    background-color: #1e1f29;
-    color: #f8f8f2;
-}
-
-thunar-window .view:selected,
-thunar-window treeview:selected,
-thunar-window .standard-view:selected {
-    background-color: #3b4261;
-    color: #00f0ff;
-    border-radius: 4px;
-}
-
-/* XFCE Settings Dialogs Dark Styling */
-.xfce-settings-dialog,
-.xfce-settings-dialog iconview,
-.xfce-settings-dialog scrolledwindow,
-.xfce-settings-dialog viewport {
-    background-color: #1e1f29;
-    color: #f8f8f2;
-}
-
-/* Inputs & Text Entries */
-entry,
-searchentry {
-    background-color: #282a36;
-    color: #f8f8f2;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    padding: 6px 10px;
+/* Unify GTK's selection color with our macOS-blue accent everywhere --
+   whiskermenu, lists, treeviews, Thunar, etc. WhiteSur-Dark already supplies
+   the base window/dialog/entry/button colors, so we don't fight it here. */
+*:selected,
+row:selected,
+treeview:selected,
+treeview.view:selected {
+    background-color: #0A84FF;
+    color: #ffffff;
 }
 
 entry:focus,
 searchentry:focus {
-    border-color: #00f0ff;
-    box-shadow: 0 0 0 1px #00f0ff;
-}
-
-/* General Buttons */
-button {
-    background-color: #282a36;
-    color: #f8f8f2;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    padding: 6px 12px;
-}
-
-button:hover {
-    background-color: #383a4c;
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: #0A84FF;
+    box-shadow: 0 0 0 1px #0A84FF;
 }
 
 button:active,
 button:checked {
-    background-color: #44475a;
-    color: #00f0ff;
+    color: #0A84FF;
 }
 
 /* Toolbar / pathbar buttons (Thunar back/forward/up/home, breadcrumb) stay flat,
@@ -419,8 +371,8 @@ toolbar button:checked,
 .path-bar button:checked,
 pathbar button:active,
 pathbar button:checked {
-    background-color: rgba(0, 240, 255, 0.16);
-    color: #00f0ff;
+    background-color: rgba(10, 132, 255, 0.16);
+    color: #0A84FF;
     border: none;
 }
 

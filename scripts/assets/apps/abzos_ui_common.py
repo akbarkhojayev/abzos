@@ -1,7 +1,7 @@
 """Shared GTK styling and process helpers for abzOS's Control Center and
 Notification Center. Both are small always-launch-fresh popup apps (not
 long-running daemons), styled to match the rest of the system: dark navy
-cards, cyan (#00f0ff) accent, JetBrains Mono for numbers/labels.
+cards, macOS system blue (#0A84FF) accent, JetBrains Mono for numbers/labels.
 """
 import shutil
 import subprocess
@@ -18,7 +18,7 @@ window.abzos-panel {
 box.abzos-card {
     background-color: rgba(16, 20, 30, 0.98);
     border-radius: 18px;
-    border: 1px solid rgba(0, 240, 255, 0.18);
+    border: 1px solid rgba(10, 132, 255, 0.18);
     padding: 16px;
 }
 button.abzos-pill {
@@ -35,12 +35,12 @@ button.abzos-pill:hover {
     background-color: rgba(255, 255, 255, 0.10);
 }
 button.abzos-pill.active {
-    background-color: #00c2d6;
-    color: #05141a;
+    background-color: #0A84FF;
+    color: #ffffff;
 }
 button.abzos-pill.active label,
 button.abzos-pill.active .abzos-sub {
-    color: #05141a;
+    color: #ffffff;
 }
 button.abzos-icon-btn {
     background-color: rgba(255, 255, 255, 0.06);
@@ -83,7 +83,7 @@ scale.abzos-slider trough {
     min-height: 6px;
 }
 scale.abzos-slider highlight {
-    background-color: #00f0ff;
+    background-color: #0A84FF;
     border-radius: 8px;
     min-height: 6px;
 }
@@ -153,5 +153,15 @@ def position_top_right(window, width, margin_top=32, margin_right=12):
     monitor = screen.get_display().get_primary_monitor() or screen.get_display().get_monitor(0)
     geo = monitor.get_geometry()
     x = geo.x + geo.width - width - margin_right
+    y = geo.y + margin_top
+    window.move(x, y)
+
+
+def position_top_center(window, width, margin_top=32):
+    """Center under the top-bar clock, which itself sits at screen center."""
+    screen = Gdk.Screen.get_default()
+    monitor = screen.get_display().get_primary_monitor() or screen.get_display().get_monitor(0)
+    geo = monitor.get_geometry()
+    x = geo.x + (geo.width - width) // 2
     y = geo.y + margin_top
     window.move(x, y)

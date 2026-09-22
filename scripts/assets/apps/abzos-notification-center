@@ -14,7 +14,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk  # noqa: E402
 
-from abzos_ui_common import enable_transparency, load_css, position_top_right  # noqa: E402
+from abzos_ui_common import enable_transparency, load_css, position_top_center  # noqa: E402
 
 LOG_PATH = os.path.expanduser("~/.local/share/abzos/notifications.json")
 PANEL_WIDTH = 560
@@ -151,7 +151,7 @@ def main():
     outer.pack_start(right, False, False, 0)
 
     win.show_all()
-    position_top_right(win, PANEL_WIDTH + 32)
+    position_top_center(win, PANEL_WIDTH)
     win.connect("focus-out-event", lambda w, e: win.close())
 
     Gtk.main()
