@@ -41,7 +41,7 @@ Presentation
             anchors.horizontalCenter: background1.horizontalCenter
             anchors.top: background1.bottom
             text: qsTr("Welcome to abzOS 1.0.<br/>"+
-                  "A Debian 12 (Bookworm) desktop with XFCE, a full developer toolkit, and security tools ready to go. "+
+                  "A Debian 12 (Bookworm) desktop with GNOME, a full developer toolkit, and security tools ready to go. "+
                   "The rest of the installation is automated and should complete in a few minutes.")
             wrapMode: Text.WordWrap
             width: 600

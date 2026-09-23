@@ -7,7 +7,7 @@ if [ ! -f "$ISO_PATH" ]; then
     exit 1
 fi
 
-echo "Launching abzOS 1.0 (Debian 12 Bookworm - XFCE Desktop) in QEMU virtual machine..."
+echo "Launching abzOS 1.0 (Debian 12 Bookworm - GNOME Desktop) in QEMU virtual machine..."
 qemu-system-x86_64 \
     -m 2048 \
     -smp 2 \

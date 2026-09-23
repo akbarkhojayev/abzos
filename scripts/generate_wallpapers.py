@@ -97,7 +97,7 @@ def generate_wallpaper(filename="/home/abz/abzos/scripts/abzos-dark.png", width=
 
     # Bottom status bar line
     draw.line([(width // 4, height - 60), (width * 3 // 4, height - 60)], fill=(0, 240, 255, 60), width=1)
-    foot_text = "DEBIAN 12 BOOKWORM  |  XFCE DESKTOP  |  SECURITY TOOLKIT"
+    foot_text = "DEBIAN 12 BOOKWORM  |  GNOME DESKTOP  |  SECURITY TOOLKIT"
     bbox3 = draw.textbbox((0, 0), foot_text, font=font_ver)
     fw = bbox3[2] - bbox3[0]
     draw.text((cx - fw // 2, height - 50), foot_text, fill=(90, 110, 135, 180), font=font_ver)

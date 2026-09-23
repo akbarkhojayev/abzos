@@ -70,9 +70,9 @@ all_out = b""
 start = time.time()
 
 # Wait for the getty login banner to appear (kernel/live-boot finished),
-# up to 60s, then give the graphical target (lightdm -> sway) time to settle
-# before typing anything -- the custom abzOS prompt never contains "root@",
-# so we can't detect shell-readiness from the prompt text itself.
+# up to 60s, then give the graphical target (gdm -> gnome-shell) time to
+# settle before typing anything -- the custom abzOS prompt never contains
+# "root@", so we can't detect shell-readiness from the prompt text itself.
 while time.time() - start < 60:
     all_out += pump(1)
     if b"login:" in all_out:
@@ -87,7 +87,7 @@ cmds = [
     "echo '=== SYSTEMD VIRT ==='",
     "systemd-detect-virt",
     "echo '=== PS GRAPHICAL ==='",
-    "ps aux | grep -E 'Xorg|lightdm|xfce4-session|xfwm4|xfce4-panel|picom|conky' | grep -v grep",
+    "ps aux | grep -E 'Xorg|gdm|gnome-session|gnome-shell|mutter' | grep -v grep",
     "echo '=== ACTIVE VT ==='",
     "fgconsole",
     "echo '=== DIAG_DONE ==='",
@@ -105,17 +105,17 @@ png = "/home/abz/abzos/iso_verify.png"
 send_qmp(f"screendump {ppm}")
 time.sleep(1)
 
-print("Launching GNOME Console (kgx), Thunar, and Settings to test Dark Theme...", flush=True)
+print("Launching Nautilus, GNOME Console (kgx), and Settings to test Dark Theme...", flush=True)
 cal_cmds = [
     "export DISPLAY=:0",
-    "export XAUTHORITY=$(ls /var/run/lightdm/root/:0 /home/abzos/.Xauthority 2>/dev/null | head -n 1)",
-    "su - abzos -c 'DISPLAY=:0 XAUTHORITY=/home/abzos/.Xauthority thunar &' || thunar &",
+    "export XAUTHORITY=$(ls /run/user/1000/gdm/Xauthority /home/abzos/.Xauthority /var/run/gdm3/greeter/.Xauthority 2>/dev/null | head -n 1)",
+    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' nautilus &' || nautilus &",
     "sleep 2",
-    "su - abzos -c 'DISPLAY=:0 XAUTHORITY=/home/abzos/.Xauthority kgx &' || kgx &",
+    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' kgx &' || kgx &",
     "sleep 2",
-    "su - abzos -c 'DISPLAY=:0 XAUTHORITY=/home/abzos/.Xauthority xfce4-settings-manager &' || xfce4-settings-manager &",
+    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' gnome-control-center &' || gnome-control-center &",
     "sleep 5",
-    "ps aux | grep -E 'kgx|thunar|xfce4-settings' | grep -v grep",
+    "ps aux | grep -E 'kgx|nautilus|gnome-control-center' | grep -v grep",
     "echo '=== APPS_DONE ==='",
 ]
 for c in cal_cmds:

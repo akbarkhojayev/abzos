@@ -58,10 +58,10 @@ if [ -f /boot/grub/fonts/unicode.pf2 ]; then
     loadfont /boot/grub/fonts/unicode.pf2
 fi
 
-terminal_output gfxterm
-
 set gfxmode=1920x1080,1440x900,1280x1024,1024x768,auto
 set gfxpayload=keep
+
+terminal_output gfxterm
 
 if [ -f /boot/grub/themes/abzos/theme.txt ]; then
     set theme=/boot/grub/themes/abzos/theme.txt
