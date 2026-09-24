@@ -1,5 +1,6 @@
 #!/bin/bash
-ISO_PATH="/home/abz/abzos/abzOS-1.0-amd64.iso"
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ISO_PATH="${BASE_DIR}/abzOS-1.0-amd64.iso"
 
 if [ ! -f "$ISO_PATH" ]; then
     echo "Error: ISO not found at $ISO_PATH"
