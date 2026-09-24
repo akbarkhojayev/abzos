@@ -1,0 +1,266 @@
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID[eax=80000001h].ECX.svm [bit 2]
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID[eax=80000001h].ECX.svm [bit 2]
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID[eax=80000001h].ECX.svm [bit 2]
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID[eax=80000001h].ECX.svm [bit 2]
+[    0.238923] virt/tdx: TDX not supported by the host platform
+:: running early hook [udev]
+Starting systemd-udevd version 261.3-1-arch
+:: running hook [udev]
+:: Triggering uevents...
+:: running hook [memdisk]
+:: running hook [archiso]
+:: running hook [archiso_loop_mnt]
+:: Mounting '/dev/disk/by-label/ABZOS' to '/run/archiso/bootmnt'
+:: Device '/dev/disk/by-label/ABZOS' mounted successfully.
+:: Mounting /run/archiso/cowspace (tmpfs) filesystem, size=2G...
+:: Mounting '/dev/loop0' to '/run/archiso/airootfs'
+:: Device '/dev/loop0' mounted successfully.
+:: running cleanup hook [udev]
+P+q6E616D65\[18t7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J
+[0;1;39mWelcome to [0m[1mabzOS 1.0 (Arch Linux - Deepin Edition)[0m[0;1;39m![0m
+
+]3008;start=4947817fe95849918296d29f0dea538d;user=root;hostname=abzos;machineid=9c1a1717c9f1418687fb551fa1f2928f;bootid=7cf5a82d117344e18bf4295b5ed9b982;pid=1;pidfdid=1;comm=systemd;type=boot\[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/dirmngr[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/getty[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-browser[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-extra[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-ssh[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/keyboxd[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/modprobe[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/serial-getty[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mUser and Session Slice[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDispatch Password Requests to Console Directory Watch[0m.
+[[0;32m  OK  [0m] Started [0;1;39mForward Password Requests to Wall Directory Watch[0m.
+[[0;32m  OK  [0m] Set up automount [0;1;39mArbitrary Executa…ormats File System Automount Point[0m.
+         Expecting device [0;1;39m/dev/ttyS0[0m...
+[[0;32m  OK  [0m] Reached target [0;1;39mImage Downloads[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Integrity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPath Units[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Encrypted Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote File Systems[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Integrity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Verity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSlice Units[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSwaps[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Verity Protected Volumes[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDevice-mapper event daemon FIFOs[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mQuery the User Interactively for a Password[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mProcess Core Dump Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mCredential Encryption/Decryption[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mFactory Reset Management[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mHostname Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Audit Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Socket (/dev/log)[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Sockets[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDDI File System Mounter Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mConsole Output Muting Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Metrics Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Netlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNamespace Resource Manager Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDisk Repartitioning Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mReport System Basic Metrics Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mCGroup Report Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mResolve Monitor Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mResolve Service Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSimple Block Device Backed Storage Provider[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSimple File System Backed Storage Provider[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Control Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Kernel Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Database Manager Socket[0m.
+         Mounting [0;1;39mHuge Pages File System[0m...
+         Mounting [0;1;39mPOSIX Message Queue File System[0m...
+         Mounting [0;1;39mKernel Debug File System[0m...
+         Mounting [0;1;39mKernel Trace File System[0m...
+         Mounting [0;1;39mTemporary Directory /tmp[0m...
+         Starting [0;1;39mCreate List of Static Device Nodes[0m...
+         Mounting [0;1;39mKernel Configuration File System[0m...
+         Mounting [0;1;39mFUSE Control File System[0m...
+         Starting [0;1;39mJournal Service[0m...
+         Starting [0;1;39mLoad Kernel Modules[0m...
+         Starting [0;1;39mGenerate Network Units from Kernel Command Line[0m...
+         Starting [0;1;39mRemount Root and Kernel File Systems[0m...
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Encrypted Volumes[0m.
+         Starting [0;1;39mLoad udev Rules from Credentials[0m...
+         Starting [0;1;39mColdplug All udev Devices[0m...
+[[0;32m  OK  [0m] Mounted [0;1;39mHuge Pages File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mPOSIX Message Queue File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Debug File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Trace File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mTemporary Directory /tmp[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate List of Static Device Nodes[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Configuration File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mFUSE Control File System[0m.
+         Starting [0;1;39mCreate Static Device Nodes in /dev gracefully[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mRemount Root and Kernel File Systems[0m.
+         Starting [0;1;39mLoad/Save OS Random Seed[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mGenerate Network Units from Kernel Command Line[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad udev Rules from Credentials[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPreparation for Network[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Resolve Hook Socket[0m.
+[[0;32m  OK  [0m] Started [0;1;39mJournal Service[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad Kernel Modules[0m.
+         Starting [0;1;39mFlush Journal to Persistent Storage[0m...
+         Starting [0;1;39mApply Kernel Variables[0m...
+         Starting [0;1;39mLoad Kernel Module tun[0m...
+         Starting [0;1;39mUser Database Manager[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mFlush Journal to Persistent Storage[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mApply Kernel Variables[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad Kernel Module tun[0m.
+         Starting [0;1;39mNamespace Resource Manager[0m...
+[[0;32m  OK  [0m] Started [0;1;39mUser Database Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mColdplug All udev Devices[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNamespace Resource Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate Static Device Nodes in /dev gracefully[0m.
+         Starting [0;1;39mCreate System Users[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Users[0m.
+         Starting [0;1;39mJournal Log Access Socket[0m...
+         Starting [0;1;39mNetwork Name Resolution[0m...
+         Starting [0;1;39mNetwork Time Synchronization[0m...
+         Starting [0;1;39mCreate Static Device Nodes in /dev[0m...
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Log Access Socket[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate Static Device Nodes in /dev[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPreparation for Local File Systems[0m.
+         Starting [0;1;39mRule-based Manager for Device Events and Files[0m...
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Time Synchronization[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Time Set[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad/Save OS Random Seed[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Name Resolution[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mHost and Network Name Lookups[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRule-based Manager for Device Events and Files[0m.
+         Starting [0;1;39mNetwork Management[0m...
+[[0;32m  OK  [0m] Found device [0;1;39m/dev/ttyS0[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mLoad/Save RF Kill Switch Status /dev/rfkill Watch[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Management[0m.
+         Starting [0;1;39mEnable Persistent Storage in systemd-networkd[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mEnable Persistent Storage in systemd-networkd[0m.
+         Starting [0;1;39mVirtual Console Setup[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mVirtual Console Setup[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal File Systems[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mVirtual Machines and Containers[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mBoot Loader Control Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDisk Image Download Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSystem Extension Image Management[0m.
+         Starting [0;1;39mSet Up Additional Binary Formats[0m...
+         Starting [0;1;39mAutomatic Boot Loader Update[0m...
+         Starting [0;1;39mCreate System Files and Directories[0m...
+         Starting [0;1;39mLoad JSON user/group Records from Credentials[0m...
+         Mounting [0;1;39mArbitrary Executable File Formats File System[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mAutomatic Boot Loader Update[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mArbitrary Executable File Formats File System[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad JSON user/group Records from Credentials[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mSet Up Additional Binary Formats[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Files and Directories[0m.
+         Starting [0;1;39mRebuild Dynamic Linker Cache[0m...
+         Starting [0;1;39mInitial Setup[0m...
+         Starting [0;1;39mRebuild Journal Catalog[0m...
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8         Starting [0;1;39mRecord System Boot/Shutdown in UTMP[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mRecord System Boot/Shutdown in UTMP[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mRebuild Journal Catalog[0m.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=9e22cade0aed44c3a3e38aa4693ce5da;user=root;hostname=abzos;machineid=9c1a1717c9f1418687fb551fa1f2928f;bootid=7cf5a82d117344e18bf4295b5ed9b982;pid=519;pidfdid=117;comm=(systemd-firstboot);servicename=systemd-firstboot.service;invocationid=14350a688e7a485f915f734187054bd7;type=service\[[0;32m  OK  [0m] Finished [0;1;39mInitial Setup[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mFirst Boot Complete[0m.
+         Starting [0;1;39mSave Transient machine-id to Disk[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mSave Transient machine-id to Disk[0m.
+[[0m[0;31m*     [0m] A start job is running for Rebuild …namic Linker Cache (4s / no limit)
+M[K[[0;32m  OK  [0m] Finished [0;1;39mRebuild Dynamic Linker Cache[0m.
+[K         Starting [0;1;39mUpdate is Completed[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mUpdate is Completed[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Initialization[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRefresh existing PGP keys of archlinux-keyring regularly[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily verification of password and group files[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily Cleanup of Temporary Directories[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mTimer Units[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mD-Bus System Message Bus Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG network certifi…ent daemon for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a… browsers) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…estricted) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…emulation) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG public key mana…nt service for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mAuthorization Manager Agent Helper[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mOpenSSH Server Socket…temd-ssh-generator, AF_UNIX Local)[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Login Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mVirtual Machine and C…tainer Registration Service Socket[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSocket Units[0m.
+         Starting [0;1;39mD-Bus System Message Bus[0m...
+[[0;32m  OK  [0m] Started [0;1;39mD-Bus System Message Bus[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mBasic System[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDDE seat management daemon[0m.
+         Starting [0;1;39mNetwork Manager[0m...
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+         Starting [0;1;39mHome Area Manager[0m...
+         Starting [0;1;39mUser Login Management[0m...
+[[0;32m  OK  [0m] Started [0;1;39mHome Area Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mHome Area Activation[0m.
+         Starting [0;1;39mdde-dconfig-daemon service[0m...
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/deepin-service-group[0m.
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mUser Login Management[0m.
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+         Starting [0;1;39mHostname Service[0m...
+[[0;32m  OK  [0m] Started [0;1;39mdde-dconfig-daemon service[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHostname Service[0m.
+         Starting [0;1;39mNetwork Manager Script Dispatcher Service[0m...
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mNetwork[0m.
+         Starting [0;1;39mPermit User Sessions[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mPermit User Sessions[0m.
+[[0;32m  OK  [0m] Started [0;1;39mSimple Desktop Display Manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mSerial Getty on ttyS0[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLogin Prompts[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mMulti-User System[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mGraphical Interface[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager Script Dispatcher Service[0m.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=7f4aa72a408544bd9708a658629a3b53;user=root;hostname=abzos;machineid=9c1a1717c9f1418687fb551fa1f2928f;bootid=7cf5a82d117344e18bf4295b5ed9b982;pid=584;pidfdid=132;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=bd846a9a300d4fa3a5bd19fbfbf1a8ac;type=service\P+q6E616D65\
+abzOS 1.0 (Arch Linux - Deepin Edition) abzos ttyS0
+abzos login: root (automatic login)
+
+]3008;start=0a923ca2c8dc401fbf43380bd0c4c67d;user=root;hostname=abzos;machineid=9c1a1717c9f1418687fb551fa1f2928f;bootid=7cf5a82d117344e18bf4295b5ed9b982;pid=584;pidfdid=132;comm=login;targetuser=root;sessionid=1;type=session\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# 
+>>> login seen, waiting for session (150s)...
+[   11.604004] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   11.626734] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   12.867775] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   12.893733] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   13.533727] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   13.556724] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   14.222766] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   14.249735] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   18.881062] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   18.909881] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+echo '=== LAUNCH_FILEMANAGER ==='
+[?2004l]3008;start=da4193ac-f945-44d4-b76d-3daa6cc0b9eb;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\=== LAUNCH_FILEMANAGER ===
+]3008;end=da4193ac-f945-44d4-b76d-3daa6cc0b9eb;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# systemd-run --user --machine=abzos@.host --collect --unit=test-fm -- /usr/bin/dde-file-manager -n 2>&1
+[?2004l]3008;start=2ded9fd8-4113-4ef1-83b8-5b50ec44eae8;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\Running as unit: test-fm.service; invocation ID: fddbe46d23364027a990397d1ab77bcf
+]3008;end=2ded9fd8-4113-4ef1-83b8-5b50ec44eae8;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# sleep 5
+[?2004l]3008;start=657d0544-052a-47cf-9f05-04ef317b91bb;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\systemctl --user --machine=abzos@.host status test-fm 2>&1 | head -20
+echo '=== LAUNCH_CONTROLCENTER ==='
+]3008;end=657d0544-052a-47cf-9f05-04ef317b91bb;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# systemctl --user --machine=abzos@.host status test-fm 2>&1 | head -20
+[?2004l]3008;start=3b0ce584-1e5b-4a99-9acb-82d0d4786df2;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\Unit test-fm.service could not be found.
+]3008;end=3b0ce584-1e5b-4a99-9acb-82d0d4786df2;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# echo '=== LAUNCH_CONTROLCENTER ==='
+[?2004l]3008;start=ef62dac5-0e55-4c48-8da4-21b72a4b7499;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\=== LAUNCH_CONTROLCENTER ===
+]3008;end=ef62dac5-0e55-4c48-8da4-21b72a4b7499;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# systemd-run --user --machine=abzos@.host --collect --unit=test-cc -- /usr/bin/dde-control-center --show 2>&1
+[?2004l]3008;start=4d174376-2b97-4b5c-81d6-2b0aec796d73;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\Running as unit: test-cc.service; invocation ID: 61fb62baabf643d9949c6b64a525de77
+]3008;end=4d174376-2b97-4b5c-81d6-2b0aec796d73;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# sleep 5
+[?2004l]3008;start=0b4097b5-d7e8-4078-8e4e-8e00ba2a8b57;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\systemctl --user --machine=abzos@.host status test-cc 2>&1 | head -20
+echo '=== PS_CHECK ==='
+]3008;end=0b4097b5-d7e8-4078-8e4e-8e00ba2a8b57;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# systemctl --user --machine=abzos@.host status test-cc 2>&1 | head -20
+[?2004l]3008;start=5a9eaa7f-0a5f-44d5-b76a-47ef05532005;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\● test-cc.service - [systemd-run] /usr/bin/dde-control-center --show
+     Loaded: loaded (/run/user/1000/systemd/transient/test-cc.service; transient)
+  Transient: yes
+     Active: active (running) since Wed 2026-09-23 20:19:20 UTC; 7s ago
+ Invocation: 61fb62baabf643d9949c6b64a525de77
+   Main PID: 2063
+      Tasks: 29 (limit: 6839)
+     Memory: 161.8M (peak: 162.8M)
+        CPU: 1.576s
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/test-cc.service
+             └─2063 /usr/bin/dde-control-center --show
+]3008;end=5a9eaa7f-0a5f-44d5-b76a-47ef05532005;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# echo '=== PS_CHECK ==='
+[?2004l]3008;start=8b306be0-0e62-460f-b36e-290e20c9b628;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\=== PS_CHECK ===
+]3008;end=8b306be0-0e62-460f-b36e-290e20c9b628;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# ps aux | grep -E 'dde-file-manager|dde-control-center' | grep -v grep
+[?2004l]3008;start=07eea65e-6c58-4308-8855-dfa4baddb3f7;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\abzos       1472  0.1  1.0 728112 60916 ?        Ssl  20:16   0:00 /usr/bin/dde-file-manager-daemon
+abzos       2063 19.5  4.6 1238900 281756 ?      Ssl  20:19   0:01 /usr/bin/dde-control-center --show
+]3008;end=07eea65e-6c58-4308-8855-dfa4baddb3f7;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# echo '=== PROBE_DONE ==='
+[?2004l]3008;start=74ed0987-7963-477c-abf9-6b94918c7c8b;type=command;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\=== PROBE_DONE ===
+]3008;end=74ed0987-7963-477c-abf9-6b94918c7c8b;exit=success\]3008;start=5fa61b7a-f29e-42b6-a7c6-17837cacfea9;type=shell;machineid=9c1a1717c9f1418687fb551fa1f2928f;user=root;hostname=abzos;bootid=7cf5a82d-1173-44e1-8bf4-295b5ed9b982;pid=877;cwd=/root\[?2004h[root@abzos ~]# saved probe screenshot

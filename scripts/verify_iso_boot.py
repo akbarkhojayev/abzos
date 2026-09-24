@@ -13,8 +13,8 @@ if os.path.exists(MON_SOCK):
 
 cmd = [
     "qemu-system-x86_64",
-    "-m", "2048",
-    "-smp", "2",
+    "-m", "6144",
+    "-smp", "4",
     "-enable-kvm",
     "-cdrom", ISO,
     "-boot", "d",
@@ -70,16 +70,15 @@ all_out = b""
 start = time.time()
 
 # Wait for the getty login banner to appear (kernel/live-boot finished),
-# up to 60s, then give the graphical target (gdm -> gnome-shell) time to
-# settle before typing anything -- the custom abzOS prompt never contains
-# "root@", so we can't detect shell-readiness from the prompt text itself.
-while time.time() - start < 60:
+# up to 90s (Arch's initramfs + mounting the >6GB squashfs takes longer than
+# Debian's did), then give the graphical target (ddm -> DDE) time to settle.
+while time.time() - start < 90:
     all_out += pump(1)
     if b"login:" in all_out:
         break
 
 print("\n>>> Login banner seen, waiting for the graphical session to settle...", flush=True)
-all_out += pump(25)
+all_out += pump(120)
 
 print("\n>>> Running diagnostics via serial...", flush=True)
 cmds = [
@@ -87,7 +86,7 @@ cmds = [
     "echo '=== SYSTEMD VIRT ==='",
     "systemd-detect-virt",
     "echo '=== PS GRAPHICAL ==='",
-    "ps aux | grep -E 'Xorg|gdm|gnome-session|gnome-shell|mutter' | grep -v grep",
+    "ps aux | grep -iE 'Xorg|ddm|dde|deepin|treeland|kwin' | grep -v grep",
     "echo '=== ACTIVE VT ==='",
     "fgconsole",
     "echo '=== DIAG_DONE ==='",
@@ -105,27 +104,27 @@ png = "/home/abz/abzos/iso_verify.png"
 send_qmp(f"screendump {ppm}")
 time.sleep(1)
 
-print("Launching Nautilus, GNOME Console (kgx), and Settings to test Dark Theme...", flush=True)
-cal_cmds = [
+print("Launching Deepin Terminal, File Manager, and Control Center...", flush=True)
+app_cmds = [
     "export DISPLAY=:0",
-    "export XAUTHORITY=$(ls /run/user/1000/gdm/Xauthority /home/abzos/.Xauthority /var/run/gdm3/greeter/.Xauthority 2>/dev/null | head -n 1)",
-    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' nautilus &' || nautilus &",
-    "sleep 2",
-    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' kgx &' || kgx &",
-    "sleep 2",
-    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' gnome-control-center &' || gnome-control-center &",
-    "sleep 5",
-    "ps aux | grep -E 'kgx|nautilus|gnome-control-center' | grep -v grep",
+    "export XAUTHORITY=$(ls /run/ddm/xauth_* /home/abzos/.Xauthority 2>/dev/null | head -n 1)",
+    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' deepin-terminal &' || deepin-terminal &",
+    "sleep 3",
+    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' dde-file-manager &' || dde-file-manager &",
+    "sleep 3",
+    "su - abzos -c 'DISPLAY=:0 XAUTHORITY='\"$XAUTHORITY\"' dde-control-center &' || dde-control-center &",
+    "sleep 6",
+    "ps aux | grep -E 'deepin-terminal|dde-file-manager|dde-control-center' | grep -v grep",
     "echo '=== APPS_DONE ==='",
 ]
-for c in cal_cmds:
+for c in app_cmds:
     proc.stdin.write(f"{c}\n".encode())
     proc.stdin.flush()
     time.sleep(1.0)
 
-all_out += pump(10)
+all_out += pump(12)
 
-print("Capturing Dark Apps screendump...", flush=True)
+print("Capturing apps screendump...", flush=True)
 cal_ppm = "/tmp/dark_apps_verify.ppm"
 cal_png = "/home/abz/abzos/dark_apps_verify.png"
 send_qmp(f"screendump {cal_ppm}")
@@ -145,14 +144,14 @@ if os.path.exists(grub_ppm):
     g_im.save(grub_png)
     print(f"\nCaptured GRUB screen: size={g_im.size}", flush=True)
 
+if os.path.exists(cal_ppm):
+    c_im = Image.open(cal_ppm)
+    c_im.save(cal_png)
+    c_colors = len(c_im.getcolors(maxcolors=200000) or [])
+    print(f"\nCaptured apps screen: size={c_im.size}, colors={c_colors}, bbox={c_im.getbbox()}", flush=True)
+
 if os.path.exists(ppm):
     im = Image.open(ppm)
     im.save(png)
     colors = len(im.getcolors(maxcolors=200000) or [])
     print(f"\nCaptured desktop: size={im.size}, colors={colors}, bbox={im.getbbox()}", flush=True)
-
-if os.path.exists(cal_ppm):
-    c_im = Image.open(cal_ppm)
-    c_im.save(cal_png)
-    c_colors = len(c_im.getcolors(maxcolors=200000) or [])
-    print(f"\nCaptured Dark Apps screen: size={c_im.size}, colors={c_colors}, bbox={c_im.getbbox()}", flush=True)

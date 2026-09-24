@@ -1,0 +1,396 @@
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID[eax=80000001h].ECX.svm [bit 2]
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID[eax=80000001h].ECX.svm [bit 2]
+[    0.182035] virt/tdx: TDX not supported by the host platform
+:: running early hook [udev]
+Starting systemd-udevd version 261.3-1-arch
+:: running hook [udev]
+:: Triggering uevents...
+:: running hook [memdisk]
+:: running hook [archiso]
+:: running hook [archiso_loop_mnt]
+:: Mounting '/dev/disk/by-label/ABZOS' to '/run/archiso/bootmnt'
+:: Device '/dev/disk/by-label/ABZOS' mounted successfully.
+:: Mounting /run/archiso/cowspace (tmpfs) filesystem, size=2G...
+:: Mounting '/dev/loop0' to '/run/archiso/airootfs'
+:: Device '/dev/loop0' mounted successfully.
+:: running cleanup hook [udev]
+P+q6E616D65\[18t7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J
+[0;1;39mWelcome to [0m[1mabzOS 1.0 (Arch Linux - Deepin Edition)[0m[0;1;39m![0m
+
+]3008;start=d7f5236038ca4671b10b5a3a44f5614f;user=root;hostname=abzos;machineid=ceaeb7de1d28490ca682733aa7dfd735;bootid=41037388e470456f9d2f9f1c801228a1;pid=1;pidfdid=1;comm=systemd;type=boot\[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/dirmngr[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/getty[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-browser[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-extra[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-ssh[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/keyboxd[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/modprobe[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/serial-getty[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mUser and Session Slice[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDispatch Password Requests to Console Directory Watch[0m.
+[[0;32m  OK  [0m] Started [0;1;39mForward Password Requests to Wall Directory Watch[0m.
+[[0;32m  OK  [0m] Set up automount [0;1;39mArbitrary Executa…ormats File System Automount Point[0m.
+         Expecting device [0;1;39m/dev/ttyS0[0m...
+[[0;32m  OK  [0m] Reached target [0;1;39mImage Downloads[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Integrity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPath Units[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Encrypted Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote File Systems[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Integrity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Verity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSlice Units[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSwaps[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Verity Protected Volumes[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDevice-mapper event daemon FIFOs[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mQuery the User Interactively for a Password[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mProcess Core Dump Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mCredential Encryption/Decryption[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mFactory Reset Management[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mHostname Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Audit Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Socket (/dev/log)[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Sockets[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDDI File System Mounter Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mConsole Output Muting Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Metrics Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Netlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNamespace Resource Manager Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDisk Repartitioning Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mReport System Basic Metrics Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mCGroup Report Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mResolve Monitor Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mResolve Service Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSimple Block Device Backed Storage Provider[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSimple File System Backed Storage Provider[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Control Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Kernel Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Database Manager Socket[0m.
+         Mounting [0;1;39mHuge Pages File System[0m...
+         Mounting [0;1;39mPOSIX Message Queue File System[0m...
+         Mounting [0;1;39mKernel Debug File System[0m...
+         Mounting [0;1;39mKernel Trace File System[0m...
+         Mounting [0;1;39mTemporary Directory /tmp[0m...
+         Starting [0;1;39mCreate List of Static Device Nodes[0m...
+         Mounting [0;1;39mKernel Configuration File System[0m...
+         Mounting [0;1;39mFUSE Control File System[0m...
+         Starting [0;1;39mJournal Service[0m...
+         Starting [0;1;39mLoad Kernel Modules[0m...
+         Starting [0;1;39mGenerate Network Units from Kernel Command Line[0m...
+         Starting [0;1;39mRemount Root and Kernel File Systems[0m...
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Encrypted Volumes[0m.
+         Starting [0;1;39mLoad udev Rules from Credentials[0m...
+         Starting [0;1;39mColdplug All udev Devices[0m...
+[[0;32m  OK  [0m] Mounted [0;1;39mHuge Pages File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mPOSIX Message Queue File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Debug File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Trace File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mTemporary Directory /tmp[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate List of Static Device Nodes[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Configuration File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mFUSE Control File System[0m.
+         Starting [0;1;39mCreate Static Device Nodes in /dev gracefully[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mGenerate Network Units from Kernel Command Line[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPreparation for Network[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Resolve Hook Socket[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mRemount Root and Kernel File Systems[0m.
+         Starting [0;1;39mLoad/Save OS Random Seed[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mLoad udev Rules from Credentials[0m.
+[[0;32m  OK  [0m] Started [0;1;39mJournal Service[0m.
+         Starting [0;1;39mFlush Journal to Persistent Storage[0m...
+         Starting [0;1;39mUser Database Manager[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mLoad Kernel Modules[0m.
+         Starting [0;1;39mLoad Kernel Module tun[0m...
+         Starting [0;1;39mApply Kernel Variables[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mFlush Journal to Persistent Storage[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad Kernel Module tun[0m.
+         Starting [0;1;39mNamespace Resource Manager[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mApply Kernel Variables[0m.
+[[0;32m  OK  [0m] Started [0;1;39mUser Database Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mColdplug All udev Devices[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNamespace Resource Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate Static Device Nodes in /dev gracefully[0m.
+         Starting [0;1;39mCreate System Users[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Users[0m.
+         Starting [0;1;39mJournal Log Access Socket[0m...
+         Starting [0;1;39mNetwork Name Resolution[0m...
+         Starting [0;1;39mNetwork Time Synchronization[0m...
+         Starting [0;1;39mCreate Static Device Nodes in /dev[0m...
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Log Access Socket[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad/Save OS Random Seed[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate Static Device Nodes in /dev[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPreparation for Local File Systems[0m.
+         Starting [0;1;39mRule-based Manager for Device Events and Files[0m...
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Time Synchronization[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Time Set[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Name Resolution[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mHost and Network Name Lookups[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRule-based Manager for Device Events and Files[0m.
+         Starting [0;1;39mNetwork Management[0m...
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Management[0m.
+         Starting [0;1;39mEnable Persistent Storage in systemd-networkd[0m...
+[[0;32m  OK  [0m] Found device [0;1;39m/dev/ttyS0[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mEnable Persistent Storage in systemd-networkd[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mLoad/Save RF Kill Switch Status /dev/rfkill Watch[0m.
+         Starting [0;1;39mVirtual Console Setup[0m...
+[[0;32m  OK  [0m] Stopped [0;1;39mVirtual Console Setup[0m.
+         Starting [0;1;39mVirtual Console Setup[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mVirtual Console Setup[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal File Systems[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mVirtual Machines and Containers[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mBoot Loader Control Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDisk Image Download Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSystem Extension Image Management[0m.
+         Starting [0;1;39mSet Up Additional Binary Formats[0m...
+         Starting [0;1;39mAutomatic Boot Loader Update[0m...
+         Starting [0;1;39mCreate System Files and Directories[0m...
+         Starting [0;1;39mLoad JSON user/group Records from Credentials[0m...
+         Mounting [0;1;39mArbitrary Executable File Formats File System[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mAutomatic Boot Loader Update[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad JSON user/group Records from Credentials[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mArbitrary Executable File Formats File System[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mSet Up Additional Binary Formats[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Files and Directories[0m.
+         Starting [0;1;39mRebuild Dynamic Linker Cache[0m...
+         Starting [0;1;39mInitial Setup[0m...
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8         Starting [0;1;39mRebuild Journal Catalog[0m...
+         Starting [0;1;39mRecord System Boot/Shutdown in UTMP[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mRecord System Boot/Shutdown in UTMP[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mRebuild Journal Catalog[0m.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=04b6ddf4f0b646d8adb89fb4d8c6a0d7;user=root;hostname=abzos;machineid=ceaeb7de1d28490ca682733aa7dfd735;bootid=41037388e470456f9d2f9f1c801228a1;pid=493;pidfdid=242;comm=(systemd-firstboot);servicename=systemd-firstboot.service;invocationid=c61b700837ef472dbbb2840e6caa7fc4;type=service\[[0;32m  OK  [0m] Finished [0;1;39mInitial Setup[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mFirst Boot Complete[0m.
+         Starting [0;1;39mSave Transient machine-id to Disk[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mSave Transient machine-id to Disk[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mRebuild Dynamic Linker Cache[0m.
+         Starting [0;1;39mUpdate is Completed[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mUpdate is Completed[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Initialization[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRefresh existing PGP keys of archlinux-keyring regularly[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily verification of password and group files[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily Cleanup of Temporary Directories[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mTimer Units[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mD-Bus System Message Bus Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG network certifi…ent daemon for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a… browsers) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…estricted) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…emulation) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG public key mana…nt service for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mAuthorization Manager Agent Helper[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mOpenSSH Server Socket…temd-ssh-generator, AF_UNIX Local)[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Login Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mVirtual Machine and C…tainer Registration Service Socket[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSocket Units[0m.
+         Starting [0;1;39mD-Bus System Message Bus[0m...
+[[0;32m  OK  [0m] Started [0;1;39mD-Bus System Message Bus[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mBasic System[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDDE seat management daemon[0m.
+         Starting [0;1;39mNetwork Manager[0m...
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+         Starting [0;1;39mHome Area Manager[0m...
+         Starting [0;1;39mUser Login Management[0m...
+[[0;32m  OK  [0m] Started [0;1;39mUser Login Management[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHome Area Manager[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/deepin-service-group[0m.
+         Starting [0;1;39mdde-dconfig-daemon service[0m...
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mHome Area Activation[0m.
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+         Starting [0;1;39mHostname Service[0m...
+[[0;32m  OK  [0m] Started [0;1;39mdde-dconfig-daemon service[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHostname Service[0m.
+         Starting [0;1;39mNetwork Manager Script Dispatcher Service[0m...
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mNetwork[0m.
+         Starting [0;1;39mPermit User Sessions[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mPermit User Sessions[0m.
+[[0;32m  OK  [0m] Started [0;1;39mSimple Desktop Display Manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mSerial Getty on ttyS0[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLogin Prompts[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mMulti-User System[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mGraphical Interface[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager Script Dispatcher Service[0m.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=2af3d631d11e4f25b53e8d853178dffa;user=root;hostname=abzos;machineid=ceaeb7de1d28490ca682733aa7dfd735;bootid=41037388e470456f9d2f9f1c801228a1;pid=556;pidfdid=279;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=0cbeda25153b4da7aeaeb0008aa62a29;type=service\P+q6E616D65\
+abzOS 1.0 (Arch Linux - Deepin Edition) abzos ttyS0
+abzos login: root (automatic login)
+
+]3008;start=31b425edcd0245de87c0857e35e30803;user=root;hostname=abzos;machineid=ceaeb7de1d28490ca682733aa7dfd735;bootid=41037388e470456f9d2f9f1c801228a1;pid=556;pidfdid=279;comm=login;targetuser=root;sessionid=1;type=session\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# 
+>>> login seen, waiting for session...
+[   11.246595] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   11.274706] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   11.858574] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   11.881815] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   12.561585] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   12.588578] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   13.991897] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   14.020896] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   17.065896] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   17.094791] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+ls -la /run/user/1000/ 2>&1
+[?2004l]3008;start=4f166c38-7f0c-43b5-b445-e5c56d98d3b7;type=command;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\ls: cannot access '/run/user/1000/gvfs': Permission denied
+total 0
+drwx------ 10 abzos abzos 400 Sep 23 19:06 .
+drwxr-xr-x  4 root  root   80 Sep 23 19:06 ..
+srw-rw-rw-  1 abzos abzos   0 Sep 23 19:06 bus
+drwx------  2 abzos abzos  60 Sep 23 19:06 dconf
+-rw-r--r--  1 abzos abzos   0 Sep 23 19:06 deepin-application-manager
+drwxr-xr-x  3 abzos abzos  60 Sep 23 19:06 deepin-screensaver
+srwxr-xr-x  1 abzos abzos   0 Sep 23 19:06 dockplugin
+-rw-r-----  1 abzos abzos   0 Sep 23 19:06 dockplugin.lock
+drwx------  2 abzos abzos 160 Sep 23 19:06 gnupg
+d?????????  ? ?     ?       ?            ? gvfs
+drwx------  2 abzos abzos  40 Sep 23 19:06 gvfsd
+srw-rw-rw-  1 abzos abzos   0 Sep 23 19:06 pipewire-0
+-rw-r-----  1 abzos abzos   0 Sep 23 19:06 pipewire-0.lock
+srw-rw-rw-  1 abzos abzos   0 Sep 23 19:06 pipewire-0-manager
+-rw-r-----  1 abzos abzos   0 Sep 23 19:06 pipewire-0-manager.lock
+drwx------  2 abzos abzos  80 Sep 23 19:06 pulse
+drwxr-xr-x 10 abzos abzos 320 Sep 23 19:06 systemd
+srw-rw-rw-  1 abzos abzos   0 Sep 23 19:06 treeland.socket
+srw-rw-rw-  1 abzos abzos   0 Sep 23 19:06 treeland-xwayland
+drwxr-xr-x  3 abzos abzos  60 Sep 23 19:06 varlink
+]3008;end=4f166c38-7f0c-43b5-b445-e5c56d98d3b7;exit=failure;status=1\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# echo '=== BUS_LIST ==='
+[?2004l]3008;start=119733b2-3b84-4eb7-bda0-ce92baeeee65;type=command;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\=== BUS_LIST ===
+]3008;end=119733b2-3b84-4eb7-bda0-ce92baeeee65;exit=success\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# sudo -u abzos XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus busctl --user list 2>&1 | grep -i 'deepin\|dde'
+[?2004l]3008;start=d6d92f76-0255-49ec-9970-4c446ae62457;type=command;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\:1.10                                        1048 dde-application abzos :1.10         user@1000.service -       -
+:1.12                                        1057 dde-session-dae abzos :1.12         user@1000.service -       -
+:1.13                                        1057 dde-session-dae abzos :1.13         user@1000.service -       -
+:1.16                                        1048 dde-application abzos :1.16         user@1000.service -       -
+:1.17                                        1048 dde-application abzos :1.17         user@1000.service -       -
+:1.28                                        1336 dde-file-manage abzos :1.28         user@1000.service -       -
+:1.29                                        1337 dde-shell       abzos :1.29         user@1000.service -       -
+:1.30                                        1338 dde-shell       abzos :1.30         user@1000.service -       -
+:1.31                                        1336 dde-file-manage abzos :1.31         user@1000.service -       -
+:1.32                                        1336 dde-file-manage abzos :1.32         user@1000.service -       -
+:1.36                                        1337 dde-shell       abzos :1.36         user@1000.service -       -
+:1.4                                          935 dde-session     abzos :1.4          session-3.scope   3       -
+:1.44                                        1430 deepin-service- abzos :1.44         user@1000.service -       -
+:1.45                                        1438 dde-fakewm      abzos :1.45         user@1000.service -       -
+:1.46                                        1438 dde-fakewm      abzos :1.46         user@1000.service -       -
+:1.47                                        1450 dde-lock        abzos :1.47         user@1000.service -       -
+:1.48                                        1450 dde-lock        abzos :1.48         user@1000.service -       -
+:1.49                                        1430 deepin-service- abzos :1.49         user@1000.service -       -
+:1.5                                          935 dde-session     abzos :1.5          session-3.scope   3       -
+:1.50                                        1426 dde-polkit-agen abzos :1.50         user@1000.service -       -
+:1.51                                        1450 dde-lock        abzos :1.51         user@1000.service -       -
+:1.52                                        1426 dde-polkit-agen abzos :1.52         user@1000.service -       -
+:1.53                                        1430 deepin-service- abzos :1.53         user@1000.service -       -
+:1.7                                         1046 dde-session     abzos :1.7          user@1000.service -       -
+:1.72                                        1338 dde-shell       abzos :1.72         user@1000.service -       -
+:1.73                                        1622 dde-calendar-se abzos :1.73         user@1000.service -       -
+:1.74                                        1622 dde-calendar-se abzos :1.74         user@1000.service -       -
+:1.8                                         1046 dde-session     abzos :1.8          user@1000.service -       -
+com.deepin.Calculator                           - -               -     (activatable) -                 -       -
+com.deepin.Calendar                             - -               -     (activatable) -                 -       -
+com.deepin.Camera                               - -               -     (activatable) -                 -       -
+com.deepin.Compressor                           - -               -     (activatable) -                 -       -
+com.deepin.Draw                                 - -               -     (activatable) -                 -       -
+com.deepin.Picker                               - -               -     (activatable) -                 -       -
+com.deepin.PinScreenShots                       - -               -     (activatable) -                 -       -
+com.deepin.ScreenRecorder                       - -               -     (activatable) -                 -       -
+com.deepin.ScreenRecorder.time               1575 trayplugin-load abzos :1.71         user@1000.service -       -
+com.deepin.ScreenSaver                          - -               -     (activatable) -                 -       -
+com.deepin.Screenshot                           - -               -     (activatable) -                 -       -
+com.deepin.ShotRecorder.PanelStatus          1575 trayplugin-load abzos :1.71         user@1000.service -       -
+com.deepin.ShotRecorder.Recorder.PanelStatus 1575 trayplugin-load abzos :1.71         user@1000.service -       -
+com.deepin.SystemMonitorPluginPopup             - -               -     (activatable) -                 -       -
+com.deepin.SystemMonitorServer                  - -               -     (activatable) -                 -       -
+com.deepin.dataserver.Calendar               1622 dde-calendar-se abzos :1.74         user@1000.service -       -
+com.deepin.dde.GrandSearch                      - -               -     (activatable) -                 -       -
+com.deepin.dde.GrandSearchSetting               - -               -     (activatable) -                 -       -
+com.deepin.dde.desktop                       1337 dde-shell       abzos :1.29         user@1000.service -       -
+com.deepin.filemanager.filedialog               - -               -     (activatable) -                 -       -
+com.deepin.filemanager.filedialog_wayland       - -               -     (activatable) -                 -       -
+com.deepin.filemanager.filedialog_x11           - -               -     (activatable) -                 -       -
+com.deepin.imageViewer                          - -               -     (activatable) -                 -       -
+com.deepin.menu                                 - -               -     (activatable) -                 -       -
+com.deepin.movie                                - -               -     (activatable) -                 -       -
+com.deepin.print.helper                         - -               -     (activatable) -                 -       -
+com.deepin.wm                                1438 dde-fakewm      abzos :1.45         user@1000.service -       -
+org.deepin.Filemanager.Daemon                1336 dde-file-manage abzos :1.28         user@1000.service -       -
+org.deepin.Filemanager.TextIndex                - -               -     (activatable) -                 -       -
+org.deepin.ServiceManager1                   1430 deepin-service- abzos :1.53         user@1000.service -       -
+org.deepin.SystemMonitorDaemon               1489 service-manager abzos :1.59         user@1000.service -       -
+org.deepin.dde.AmbientBrightness1            1486 service-manager abzos :1.61         user@1000.service -       -
+org.deepin.dde.Appearance1                   1486 service-manager abzos :1.55         user@1000.service -       -
+org.deepin.dde.Audio1                        1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.BlackScreen1                     - -               -     (activatable) -                 -       -
+org.deepin.dde.Bluetooth1                    1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.Clipboard1                       - -               -     (activatable) -                 -       -
+org.deepin.dde.ClipboardLoader1                 - -               -     (activatable) -                 -       -
+org.deepin.dde.ClipboardManager1             1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.ControlCenter1                   - -               -     (activatable) -                 -       -
+org.deepin.dde.Daemon1                       1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.Display1                      1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.Dock1                         1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.dde.Format1                       1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.Gesture1                      1486 service-manager abzos :1.62         user@1000.service -       -
+org.deepin.dde.GrandSearchDaemon                - -               -     (activatable) -                 -       -
+org.deepin.dde.Graphic1                         - -               -     (activatable) -                 -       -
+org.deepin.dde.InputDevices1                 1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.Keybinding1                   1486 service-manager abzos :1.62         user@1000.service -       -
+org.deepin.dde.Keyboard1                     1574 trayplugin-load abzos :1.70         user@1000.service -       -
+org.deepin.dde.LangSelector1                    - -               -     (activatable) -                 -       -
+org.deepin.dde.LastoreSessionHelper1            - -               -     (activatable) -                 -       -
+org.deepin.dde.Launcher1                     1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.dde.LockFront1                    1450 dde-lock        abzos :1.48         user@1000.service -       -
+org.deepin.dde.LunarCalendar1                   - -               -     (activatable) -                 -       -
+org.deepin.dde.Notification1                 1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.dde.Osd1                          1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.dde.Pinyin1                          - -               -     (activatable) -                 -       -
+org.deepin.dde.Polkit1.AuthAgent             1426 dde-polkit-agen abzos :1.50         user@1000.service -       -
+org.deepin.dde.Power1                        1486 service-manager abzos :1.63         user@1000.service -       -
+org.deepin.dde.ScreenSaver1                  1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.Search1                          - -               -     (activatable) -                 -       -
+org.deepin.dde.Session1                      1046 dde-session     abzos :1.8          user@1000.service -       -
+org.deepin.dde.SessionManager1               1046 dde-session     abzos :1.8          user@1000.service -       -
+org.deepin.dde.SessionWatcher1               1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.ShutdownFront1                1450 dde-lock        abzos :1.48         user@1000.service -       -
+org.deepin.dde.SoundEffect1                     - -               -     (activatable) -                 -       -
+org.deepin.dde.SystemInfo1                   1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.Timedate1                     1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.TrayManager1                  1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.WMSwitcher1                   1046 dde-session     abzos :1.8          user@1000.service -       -
+org.deepin.dde.WallpaperSlideshow            1486 service-manager abzos :1.55         user@1000.service -       -
+org.deepin.dde.WarningDialog1                   - -               -     (activatable) -                 -       -
+org.deepin.dde.Welcome1                         - -               -     (activatable) -                 -       -
+org.deepin.dde.Widgets1                      1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.dde.XEventMonitor1                1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.XSettings1                    1047 service-manager abzos :1.15         user@1000.service -       -
+org.deepin.dde.Zone1                         1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.deepin.dde.daemon.Clipboard1                - -               -     (activatable) -                 -       -
+org.deepin.dde.daemon.Dock1                  1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.dde.shell                         1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.dde.shell.random1337              1337 dde-shell       abzos :1.29         user@1000.service -       -
+org.deepin.ds.Dock                           1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.ds.Dock.TaskManager               1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.deepin.service.thememanager              1486 service-manager abzos :1.65         user@1000.service -       -
+org.deepin.service.wallpaperslideshow        1486 service-manager abzos :1.64         user@1000.service -       -
+org.deepin.voicenote                            - -               -     (activatable) -                 -       -
+org.desktopspec.ApplicationManager1          1048 dde-application abzos :1.17         user@1000.service -       -
+org.freedesktop.FileManager1                 1336 dde-file-manage abzos :1.28         user@1000.service -       -
+org.freedesktop.Notifications                1338 dde-shell       abzos :1.30         user@1000.service -       -
+org.freedesktop.ScreenSaver                  1057 dde-session-dae abzos :1.12         user@1000.service -       -
+org.freedesktop.impl.portal.desktop.dde         - -               -     (activatable) -                 -       -
+org.kde.StatusNotifierWatcher                1057 dde-session-dae abzos :1.12         user@1000.service -       -
+]3008;end=d6d92f76-0255-49ec-9970-4c446ae62457;exit=success\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# echo '=== APPEARANCE_TREE ==='
+[?2004l]3008;start=a7740c8e-b5e3-4d82-ac9f-fc2f2794f43c;type=command;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\=== APPEARANCE_TREE ===
+]3008;end=a7740c8e-b5e3-4d82-ac9f-fc2f2794f43c;exit=success\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# sudo -u abzos XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus busctl --user tree org.deepin.dde.Appearance1 2>&1 | head -60
+[?2004l]3008;start=efd4d761-f0a6-42e0-9517-a2003f28061f;type=command;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\└─ /org
+  └─ /org/deepin
+    ├─ /org/deepin/ServiceManager1
+    │ └─ /org/deepin/ServiceManager1/Plugin
+    └─ /org/deepin/dde
+      ├─ /org/deepin/dde/Appearance1
+      │ ├─ /org/deepin/dde/Appearance1/Background
+      │ └─ /org/deepin/dde/Appearance1/sync
+      └─ /org/deepin/dde/WallpaperSlideshow
+]3008;end=efd4d761-f0a6-42e0-9517-a2003f28061f;exit=success\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# echo '=== DOCK_TREE ==='
+[?2004l]3008;start=b5aa3178-3f84-4d66-9b41-64519ab3a51f;type=command;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\=== DOCK_TREE ===
+]3008;end=b5aa3178-3f84-4d66-9b41-64519ab3a51f;exit=success\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# sudo -u abzos XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus busctl --user tree org.deepin.dde.daemon.Dock 2>&1 | head -40
+[?2004l]3008;start=ccfd9164-d04b-4b86-a644-441e0b3f43ca;type=command;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\Failed to introspect object / of service org.deepin.dde.daemon.Dock: The name is not activatable
+No objects discovered.
+]3008;end=ccfd9164-d04b-4b86-a644-441e0b3f43ca;exit=success\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# echo '=== PROBE_DONE ==='
+[?2004l]3008;start=255790fe-002a-4566-8eb8-1f600e0e6c57;type=command;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\=== PROBE_DONE ===
+]3008;end=255790fe-002a-4566-8eb8-1f600e0e6c57;exit=success\]3008;start=3737cbc6-9048-4e9b-818e-6263f8f921fb;type=shell;machineid=ceaeb7de1d28490ca682733aa7dfd735;user=root;hostname=abzos;bootid=41037388-e470-456f-9d2f-9f1c801228a1;pid=876;cwd=/root\[?2004h[root@abzos ~]# 

@@ -1,0 +1,229 @@
+=========================================================
+           Building abzOS 1.0 (Arch Linux / DDE) ISO       
+=========================================================
+=== [1/5] Building container image ===
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 13.27kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/archlinux:latest
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/52] FROM docker.io/library/archlinux:latest@sha256:f3691b4dde62ba4c4b6f0ae2c1fbf28e8c0c8c4b9a35c7e06dc1f70e21aa29f6
+#4 resolve docker.io/library/archlinux:latest@sha256:f3691b4dde62ba4c4b6f0ae2c1fbf28e8c0c8c4b9a35c7e06dc1f70e21aa29f6 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 1.40kB 4.2s done
+#5 DONE 4.3s
+
+#6 [ 8/52] RUN pacman -S --noconfirm --needed     kcoreaddons kpmcore libpwquality qt6-declarative qt6-svg yaml-cpp     extra-cmake-modules libglvnd ninja qt6-tools qt6-translations &&     useradd -m builder &&     echo "builder ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/builder &&     su builder -c 'cd /tmp && git clone --depth 1 https://aur.archlinux.org/calamares.git && cd calamares && makepkg -s --noconfirm' &&     pacman -U --noconfirm /tmp/calamares/*.pkg.tar.zst &&     rm -rf /tmp/calamares /home/builder &&     userdel builder && rm -f /etc/sudoers.d/builder
+#6 CACHED
+
+#7 [15/52] RUN mkdir -p /etc/systemd/system/serial-getty@ttyS0.service.d &&     cat << 'AUTOLOGIN' > /etc/systemd/system/serial-getty@ttyS0.service.d/autologin.conf
+#7 CACHED
+
+#8 [22/52] COPY scripts/abzos-logo.png /usr/share/pixmaps/abzos-logo.png
+#8 CACHED
+
+#9 [ 4/52] RUN pacman -S --noconfirm --needed     xorg-server xorg-xinit xorg-xrandr     xf86-video-amdgpu xf86-video-ati xf86-video-nouveau xf86-video-vesa     xf86-input-libinput     mesa vulkan-icd-loader vulkan-intel vulkan-radeon libva-mesa-driver     spice-vdagent qemu-guest-agent open-vm-tools     networkmanager wpa_supplicant wireless_tools rfkill     bluez bluez-utils     pipewire pipewire-pulse pipewire-alsa wireplumber pavucontrol alsa-utils     acpi acpid upower     ntfs-3g exfatprogs e2fsprogs parted
+#9 CACHED
+
+#10 [12/52] RUN chmod +x /usr/local/bin/abzos-display-setup
+#10 CACHED
+
+#11 [13/52] RUN mkdir -p /etc/xdg/autostart &&     cat << 'AUTO' > /etc/xdg/autostart/abzos-display.desktop
+#11 CACHED
+
+#12 [11/52] RUN cat << 'DISP' > /usr/local/bin/abzos-display-setup
+#12 CACHED
+
+#13 [16/52] RUN echo "abzos" > /etc/hostname
+#13 CACHED
+
+#14 [ 7/52] RUN pacman -S --noconfirm --needed     base-devel gdb git curl wget jq tree htop python python-pip     nmap net-tools iputils traceroute whois     tcpdump socat openbsd-netcat wireshark-cli wireshark-qt     sqlmap john hydra aircrack-ng binwalk hexedit strace ltrace
+#14 CACHED
+
+#15 [18/52] RUN cat << 'ISSUE' > /etc/issue
+#15 CACHED
+
+#16 [10/52] RUN ln -sf /usr/share/zoneinfo/UTC /etc/localtime &&     echo "KEYMAP=us" > /etc/vconsole.conf
+#16 CACHED
+
+#17 [14/52] RUN (id -u abzos >/dev/null 2>&1 || useradd -m -s /bin/bash -u 1000 -U abzos) &&     echo "abzos:abzos" | chpasswd &&     echo "root:toor" | chpasswd &&     usermod -aG wheel,audio,video,storage,optical,network,power abzos &&     mkdir -p /etc/sudoers.d &&     echo "abzos ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/abzos &&     chmod 0440 /etc/sudoers.d/abzos
+#17 CACHED
+
+#18 [20/52] RUN mkdir -p /usr/share/backgrounds/abzos /usr/share/pixmaps /usr/share/icons
+#18 CACHED
+
+#19 [ 9/52] RUN echo "LANG=en_US.UTF-8" > /etc/locale.conf &&     sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen &&     locale-gen
+#19 CACHED
+
+#20 [ 6/52] RUN pacman -S --noconfirm --needed     firefox vlc mpv gparted file-roller xdg-user-dirs
+#20 CACHED
+
+#21 [19/52] RUN cp /etc/issue /etc/issue.net
+#21 CACHED
+
+#22 [ 3/52] RUN pacman -S --noconfirm --needed     base linux linux-firmware linux-headers     mkinitcpio mkinitcpio-archiso     intel-ucode amd-ucode     sudo nano dbus polkit     grub efibootmgr dosfstools
+#22 CACHED
+
+#23 [ 5/52] RUN pacman -S --noconfirm --needed deepin deepin-extra ddm
+#23 CACHED
+
+#24 [17/52] RUN cat << 'OSREL' > /etc/os-release
+#24 CACHED
+
+#25 [21/52] COPY scripts/wallpaper-t1.jpg /usr/share/backgrounds/abzos/wallpaper-t1.jpg
+#25 CACHED
+
+#26 [ 2/52] RUN pacman-key --init && pacman-key --populate archlinux &&     pacman -Sy --noconfirm archlinux-keyring &&     pacman -Syu --noconfirm
+#26 CACHED
+
+#27 [23/52] RUN chmod -R a+rX /usr/share/backgrounds/abzos /usr/share/pixmaps
+#27 CACHED
+
+#28 [24/52] RUN for f in         /usr/share/backgrounds/deepin/desktop.jpg         /usr/share/wallpapers/deepin/desktop.jpg         /usr/share/wallpapers/deepin/deepin-default.jpg     ; do         if [ -f "$f" ]; then cp /usr/share/backgrounds/abzos/wallpaper-t1.jpg "$f"; fi;     done
+#28 DONE 0.3s
+
+#29 [25/52] COPY scripts/abzos-logo-*.png /usr/share/icons/
+#29 DONE 0.1s
+
+#30 [26/52] RUN for sz in 16 24 32 48 64 128 256 512; do         if [ -f "/usr/share/icons/abzos-logo-$sz.png" ]; then             mkdir -p /usr/share/icons/hicolor/${sz}x${sz}/apps;             mv "/usr/share/icons/abzos-logo-$sz.png" /usr/share/icons/hicolor/${sz}x${sz}/apps/abzos-logo.png;         fi;     done &&     mkdir -p /usr/share/icons/hicolor/scalable/apps &&     cp /usr/share/pixmaps/abzos-logo.png /usr/share/icons/hicolor/scalable/apps/abzos-logo.png 2>/dev/null || true &&     chmod -R a+rX /usr/share/icons/hicolor &&     (which gtk-update-icon-cache >/dev/null 2>&1 && gtk-update-icon-cache -f -t /usr/share/icons/hicolor || true)
+#30 0.750 gtk-update-icon-cache: Cache file created successfully.
+#30 DONE 0.8s
+
+#31 [27/52] COPY scripts/assets/calamares/branding/abzos /etc/calamares/branding/abzos
+#31 DONE 0.1s
+
+#32 [28/52] COPY scripts/assets/calamares/modules/ /etc/calamares/modules/
+#32 DONE 0.0s
+
+#33 [29/52] COPY scripts/assets/calamares/settings.conf /etc/calamares/settings.conf
+#33 DONE 0.0s
+
+#34 [30/52] COPY scripts/assets/calamares/abzos-calamares /usr/local/bin/abzos-calamares
+#34 DONE 0.0s
+
+#35 [31/52] COPY scripts/assets/calamares/abzos-installer.desktop /usr/share/applications/abzos-installer.desktop
+#35 DONE 0.0s
+
+#36 [32/52] RUN chmod +x /usr/local/bin/abzos-calamares /usr/share/applications/abzos-installer.desktop &&     chmod -R a+rX /etc/calamares &&     mkdir -p /etc/skel/Desktop &&     cp /usr/share/applications/abzos-installer.desktop /etc/skel/Desktop/ &&     chmod +x /etc/skel/Desktop/abzos-installer.desktop
+#36 DONE 0.3s
+
+#37 [33/52] RUN cat << 'DDMCONF' > /etc/ddm.conf
+#37 DONE 0.3s
+
+#38 [34/52] RUN cat << 'FETCH' > /usr/local/bin/abzos-fetch
+#38 DONE 0.3s
+
+#39 [35/52] RUN chmod +x /usr/local/bin/abzos-fetch
+#39 DONE 0.3s
+
+#40 [36/52] RUN cat << 'BASHRC' >> /etc/skel/.bashrc
+#40 DONE 0.3s
+
+#41 [37/52] RUN cp -f /etc/skel/.bashrc /root/.bashrc
+#41 DONE 0.3s
+
+#42 [38/52] RUN mkdir -p /usr/share/applications
+#42 DONE 0.3s
+
+#43 [39/52] RUN cat << 'APPDT' > /usr/share/applications/abzos-nmap.desktop
+#43 DONE 0.3s
+
+#44 [40/52] RUN cat << 'APPDT' > /usr/share/applications/abzos-sqlmap.desktop
+#44 DONE 0.3s
+
+#45 [41/52] RUN cat << 'APPDT' > /usr/share/applications/abzos-john.desktop
+#45 DONE 0.3s
+
+#46 [42/52] RUN cat << 'APPDT' > /usr/share/applications/abzos-hydra.desktop
+#46 DONE 0.3s
+
+#47 [43/52] RUN cat << 'APPDT' > /usr/share/applications/abzos-aircrack.desktop
+#47 DONE 0.4s
+
+#48 [44/52] RUN cat << 'APPDT' > /usr/share/applications/abzos-binwalk.desktop
+#48 DONE 0.4s
+
+#49 [45/52] RUN cat << 'APPDT' > /usr/share/applications/abzos-wireshark.desktop
+#49 DONE 0.4s
+
+#50 [46/52] RUN mkdir -p /etc/mkinitcpio.conf.d &&     cat << 'ARCHISOCONF' > /etc/mkinitcpio.conf.d/archiso.conf
+#50 DONE 0.3s
+
+#51 [47/52] RUN KVER=$(ls /usr/lib/modules | head -n1) &&     mkinitcpio -c /etc/mkinitcpio.conf.d/archiso.conf -k "${KVER}" -g /boot/initramfs-linux.img
+#51 0.497 ==> Starting build: '7.2.6-arch2-1'
+#51 0.592   -> Running build hook: [base]
+#51 1.968   -> Running build hook: [udev]
+#51 2.471   -> Running build hook: [microcode]
+#51 2.572   -> Running build hook: [modconf]
+#51 2.602   -> Running build hook: [kms]
+#51 12.49 ==> WARNING: Possibly missing firmware for module: 'ast'
+#51 27.37   -> Running build hook: [memdisk]
+#51 27.47   -> Running build hook: [archiso]
+#51 27.72 ==> WARNING: pv not found; falling back to cp for copy to RAM
+#51 27.87   -> Running build hook: [archiso_loop_mnt]
+#51 27.90   -> Running build hook: [block]
+#51 29.06 ==> WARNING: Possibly missing firmware for module: 'wd719x'
+#51 29.08 ==> WARNING: Possibly missing firmware for module: 'aic94xx'
+#51 29.21 ==> WARNING: Possibly missing firmware for module: 'qla1280'
+#51 29.34 ==> WARNING: Possibly missing firmware for module: 'qla2xxx'
+#51 29.37 ==> WARNING: Possibly missing firmware for module: 'bfa'
+#51 29.39 ==> WARNING: Possibly missing firmware for module: 'qed'
+#51 30.44 ==> WARNING: Possibly missing firmware for module: 'xhci_pci_renesas'
+#51 34.68   -> Running build hook: [filesystems]
+#51 36.20   -> Running build hook: [keyboard]
+#51 43.14 ==> Generating module dependencies
+#51 43.69 ==> Creating xz-compressed initcpio image: '/boot/initramfs-linux.img'
+#51 46.61   -> Early uncompressed CPIO image generation successful
+#51 84.40 ==> Initcpio image generation successful
+#51 DONE 84.6s
+
+#52 [48/52] RUN cp -a /etc/skel/. /home/abzos/ && chown -R abzos:abzos /home/abzos
+#52 DONE 0.3s
+
+#53 [49/52] RUN ln -sf /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target &&     ln -sf /usr/lib/systemd/system/ddm.service /etc/systemd/system/display-manager.service
+#53 DONE 0.3s
+
+#54 [50/52] RUN systemctl enable NetworkManager.service 2>/dev/null || true
+#54 DONE 0.3s
+
+#55 [51/52] RUN systemctl enable bluetooth.service 2>/dev/null || true
+#55 DONE 0.3s
+
+#56 [52/52] RUN chmod 1777 /tmp /var/tmp &&     chmod 0640 /etc/shadow &&     chmod 4755 /usr/bin/sudo /bin/su
+#56 DONE 0.3s
+
+#57 exporting to image
+#57 exporting layers
+#57 exporting layers 8.8s done
+#57 exporting manifest sha256:1b4886c364e6af4f36b69d91bd9b402ea7c426cdde1a6c88a8d999d6acc7ff73 0.0s done
+#57 exporting config sha256:0f06f5be07c8d288a2ca1c67ba6d09a82d487b9154b48900c25c3eddb222a175 0.0s done
+#57 exporting attestation manifest sha256:63c9f67bce48c58da6c34e2171387e83728490fddc15f835792a8507c33ef890 0.0s done
+#57 exporting manifest list sha256:81c8513d9faa31a87f13f0f5a64888d56eaecf66245000368b5f27d3ea02cab9 0.0s done
+#57 naming to docker.io/library/abzos:1.0 done
+#57 unpacking to docker.io/library/abzos:1.0
+#57 unpacking to docker.io/library/abzos:1.0 1.2s done
+#57 DONE 10.2s
+=== [2/5] Preparing image directories ===
+=== [3/5] Extracting kernel and initramfs ===
+Kernel: vmlinuz-linux
+Initramfs: initramfs-linux.img
+=== [4/5] Building squashfs from the container export ===
+Preserving UIDs/GIDs/SUID, stripping container artifacts (.dockerenv), and configuring hostname...
+Parallel mksquashfs: Using 12 processors
+Creating 4.0 filesystem on /home/abz/abzos/image/arch/x86_64/airootfs.sfs, block size 1048576.
+[/                                                               ]   0/210   0%Unrecognised keyword "hdrcharset" in pax header, ignoring
+Unrecognised keyword "hdrcharset" in pax header, ignoring
+
+[======================================================\       ] 2700/3028  89%Unrecognised keyword "hdrcharset" in pax header, ignoring
+
+[=============================================================-] 7059/7059 100%[=============================================================\] 7562/7562 100%[===========================================================\] 10215/10215 100%[===========================================================-] 11905/11905 100%[===========================================================-] 14498/14498 100%[===========================================================-] 14984/14984 100%[===========================================================|] 22655/22655 100%[===========================================================/] 25608/25608 100%[===========================================================-] 33439/33439 100%[=========================================================|  ] 42900/43858  97%[=========================================================-  ] 51900/52860  98%[=========================================================\  ] 52500/53463  98%[=========================================================-  ] 52900/53861  98%[=========================================================/  ] 53200/54194  98%[===========================================================|] 56018/56018 100%[===========================================================\] 81115/81115 100%[===========================================================|] 87070/87070 100%[==========================================================\ ] 96500/97522  98%[========================================================| ] 101000/101002  99%[========================================================| ] 103100/103101  99%[=========================================================-] 118332/118332 100%[=========================================================-] 121431/121431 100%[=========================================================|] 121565/121565 100%[========================================================- ] 121700/121701  99%[=========================================================-] 127423/127423 100%[=========================================================/] 133424/133424 100%[=========================================================-] 134537/134537 100%[=========================================================/] 136697/136697 100%[=========================================================-] 146003/146003 100%                                                                                

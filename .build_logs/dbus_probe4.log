@@ -1,0 +1,291 @@
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID[eax=80000001h].ECX.svm [bit 2]
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID[eax=80000001h].ECX.svm [bit 2]
+[    0.184385] virt/tdx: TDX not supported by the host platform
+:: running early hook [udev]
+Starting systemd-udevd version 261.3-1-arch
+:: running hook [udev]
+:: Triggering uevents...
+:: running hook [memdisk]
+:: running hook [archiso]
+:: running hook [archiso_loop_mnt]
+:: Mounting '/dev/disk/by-label/ABZOS' to '/run/archiso/bootmnt'
+:: Device '/dev/disk/by-label/ABZOS' mounted successfully.
+:: Mounting /run/archiso/cowspace (tmpfs) filesystem, size=2G...
+:: Mounting '/dev/loop0' to '/run/archiso/airootfs'
+:: Device '/dev/loop0' mounted successfully.
+:: running cleanup hook [udev]
+P+q6E616D65\[18t7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J
+[0;1;39mWelcome to [0m[1mabzOS 1.0 (Arch Linux - Deepin Edition)[0m[0;1;39m![0m
+
+]3008;start=8f204edac48949aeaccb4c6c194f54d8;user=root;hostname=abzos;machineid=0d7976b68e69491cb752d895d299d21f;bootid=10a41febee28451e961c04cd549c33dd;pid=1;pidfdid=1;comm=systemd;type=boot\[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/dirmngr[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/getty[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-browser[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-extra[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/gpg-agent-ssh[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/keyboxd[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/modprobe[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/serial-getty[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mUser and Session Slice[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDispatch Password Requests to Console Directory Watch[0m.
+[[0;32m  OK  [0m] Started [0;1;39mForward Password Requests to Wall Directory Watch[0m.
+[[0;32m  OK  [0m] Set up automount [0;1;39mArbitrary Executa…ormats File System Automount Point[0m.
+         Expecting device [0;1;39m/dev/ttyS0[0m...
+[[0;32m  OK  [0m] Reached target [0;1;39mImage Downloads[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Integrity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPath Units[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Encrypted Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote File Systems[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Integrity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mRemote Verity Protected Volumes[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSlice Units[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSwaps[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Verity Protected Volumes[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDevice-mapper event daemon FIFOs[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mQuery the User Interactively for a Password[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mProcess Core Dump Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mCredential Encryption/Decryption[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mFactory Reset Management[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mHostname Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Audit Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Socket (/dev/log)[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Sockets[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDDI File System Mounter Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mConsole Output Muting Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Metrics Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Netlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNamespace Resource Manager Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDisk Repartitioning Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mReport System Basic Metrics Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mCGroup Report Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mResolve Monitor Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mResolve Service Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSimple Block Device Backed Storage Provider[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSimple File System Backed Storage Provider[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Control Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Kernel Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mudev Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Database Manager Socket[0m.
+         Mounting [0;1;39mHuge Pages File System[0m...
+         Mounting [0;1;39mPOSIX Message Queue File System[0m...
+         Mounting [0;1;39mKernel Debug File System[0m...
+         Mounting [0;1;39mKernel Trace File System[0m...
+         Mounting [0;1;39mTemporary Directory /tmp[0m...
+         Starting [0;1;39mCreate List of Static Device Nodes[0m...
+         Mounting [0;1;39mKernel Configuration File System[0m...
+         Mounting [0;1;39mFUSE Control File System[0m...
+         Starting [0;1;39mJournal Service[0m...
+         Starting [0;1;39mLoad Kernel Modules[0m...
+         Starting [0;1;39mGenerate Network Units from Kernel Command Line[0m...
+         Starting [0;1;39mRemount Root and Kernel File Systems[0m...
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal Encrypted Volumes[0m.
+         Starting [0;1;39mLoad udev Rules from Credentials[0m...
+         Starting [0;1;39mColdplug All udev Devices[0m...
+[[0;32m  OK  [0m] Mounted [0;1;39mHuge Pages File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mPOSIX Message Queue File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Debug File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Trace File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mTemporary Directory /tmp[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate List of Static Device Nodes[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mKernel Configuration File System[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mFUSE Control File System[0m.
+         Starting [0;1;39mCreate Static Device Nodes in /dev gracefully[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mRemount Root and Kernel File Systems[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mGenerate Network Units from Kernel Command Line[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPreparation for Network[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mNetwork Management Resolve Hook Socket[0m.
+         Starting [0;1;39mLoad/Save OS Random Seed[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mLoad udev Rules from Credentials[0m.
+[[0;32m  OK  [0m] Started [0;1;39mJournal Service[0m.
+         Starting [0;1;39mFlush Journal to Persistent Storage[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mLoad Kernel Modules[0m.
+         Starting [0;1;39mApply Kernel Variables[0m...
+         Starting [0;1;39mLoad Kernel Module tun[0m...
+         Starting [0;1;39mUser Database Manager[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mFlush Journal to Persistent Storage[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mApply Kernel Variables[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad Kernel Module tun[0m.
+         Starting [0;1;39mNamespace Resource Manager[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mColdplug All udev Devices[0m.
+[[0;32m  OK  [0m] Started [0;1;39mUser Database Manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNamespace Resource Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate Static Device Nodes in /dev gracefully[0m.
+         Starting [0;1;39mCreate System Users[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Users[0m.
+         Starting [0;1;39mJournal Log Access Socket[0m...
+         Starting [0;1;39mNetwork Name Resolution[0m...
+         Starting [0;1;39mNetwork Time Synchronization[0m...
+         Starting [0;1;39mCreate Static Device Nodes in /dev[0m...
+[[0;32m  OK  [0m] Listening on [0;1;39mJournal Log Access Socket[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad/Save OS Random Seed[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate Static Device Nodes in /dev[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mPreparation for Local File Systems[0m.
+         Starting [0;1;39mRule-based Manager for Device Events and Files[0m...
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Time Synchronization[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Time Set[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Name Resolution[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mHost and Network Name Lookups[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRule-based Manager for Device Events and Files[0m.
+         Starting [0;1;39mNetwork Management[0m...
+[[0;32m  OK  [0m] Found device [0;1;39m/dev/ttyS0[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Management[0m.
+         Starting [0;1;39mEnable Persistent Storage in systemd-networkd[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mEnable Persistent Storage in systemd-networkd[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mLoad/Save RF Kill Switch Status /dev/rfkill Watch[0m.
+         Starting [0;1;39mVirtual Console Setup[0m...
+[[0;32m  OK  [0m] Stopped [0;1;39mVirtual Console Setup[0m.
+         Starting [0;1;39mVirtual Console Setup[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mVirtual Console Setup[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLocal File Systems[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mVirtual Machines and Containers[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mBoot Loader Control Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mDisk Image Download Service Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mSystem Extension Image Management[0m.
+         Starting [0;1;39mSet Up Additional Binary Formats[0m...
+         Starting [0;1;39mAutomatic Boot Loader Update[0m...
+         Starting [0;1;39mCreate System Files and Directories[0m...
+         Starting [0;1;39mLoad JSON user/group Records from Credentials[0m...
+         Mounting [0;1;39mArbitrary Executable File Formats File System[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mAutomatic Boot Loader Update[0m.
+[[0;32m  OK  [0m] Mounted [0;1;39mArbitrary Executable File Formats File System[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mLoad JSON user/group Records from Credentials[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mSet Up Additional Binary Formats[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mCreate System Files and Directories[0m.
+         Starting [0;1;39mRebuild Dynamic Linker Cache[0m...
+         Starting [0;1;39mInitial Setup[0m...
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8         Starting [0;1;39mRebuild Journal Catalog[0m...
+         Starting [0;1;39mRecord System Boot/Shutdown in UTMP[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mRecord System Boot/Shutdown in UTMP[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mRebuild Journal Catalog[0m.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=3b9842bc17ab4573b15c2c2c64c7bf01;user=root;hostname=abzos;machineid=0d7976b68e69491cb752d895d299d21f;bootid=10a41febee28451e961c04cd549c33dd;pid=493;pidfdid=4287;comm=(systemd-firstboot);servicename=systemd-firstboot.service;invocationid=98ba133eabf34fbbb261c4cb1dba4e7c;type=service\[[0;32m  OK  [0m] Finished [0;1;39mInitial Setup[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mFirst Boot Complete[0m.
+         Starting [0;1;39mSave Transient machine-id to Disk[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mSave Transient machine-id to Disk[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mRebuild Dynamic Linker Cache[0m.
+         Starting [0;1;39mUpdate is Completed[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mUpdate is Completed[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSystem Initialization[0m.
+[[0;32m  OK  [0m] Started [0;1;39mRefresh existing PGP keys of archlinux-keyring regularly[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily verification of password and group files[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDaily Cleanup of Temporary Directories[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mTimer Units[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mD-Bus System Message Bus Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG network certifi…ent daemon for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a… browsers) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…estricted) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…emulation) for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG cryptographic a…rase cache for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mGnuPG public key mana…nt service for /etc/pacman.d/gnupg[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mAuthorization Manager Agent Helper[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mOpenSSH Server Socket…temd-ssh-generator, AF_UNIX Local)[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mUser Login Management Varlink Socket[0m.
+[[0;32m  OK  [0m] Listening on [0;1;39mVirtual Machine and C…tainer Registration Service Socket[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mSocket Units[0m.
+         Starting [0;1;39mD-Bus System Message Bus[0m...
+[[0;32m  OK  [0m] Started [0;1;39mD-Bus System Message Bus[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mBasic System[0m.
+[[0;32m  OK  [0m] Started [0;1;39mDDE seat management daemon[0m.
+         Starting [0;1;39mNetwork Manager[0m...
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+         Starting [0;1;39mHome Area Manager[0m...
+         Starting [0;1;39mUser Login Management[0m...
+         Starting [0;1;39mdde-dconfig-daemon service[0m...
+[[0;32m  OK  [0m] Started [0;1;39mUser Login Management[0m.
+[[0;32m  OK  [0m] Created slice [0;1;39mSlice /system/deepin-service-group[0m.
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mdeepin-service-manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHome Area Manager[0m.
+[[0;32m  OK  [0m] Finished [0;1;39mHome Area Activation[0m.
+         Starting [0;1;39mHostname Service[0m...
+[[0;32m  OK  [0m] Started [0;1;39mdde-dconfig-daemon service[0m.
+[[0;32m  OK  [0m] Started [0;1;39mHostname Service[0m.
+         Starting [0;1;39mNetwork Manager Script Dispatcher Service[0m...
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mNetwork[0m.
+         Starting [0;1;39mPermit User Sessions[0m...
+[[0;32m  OK  [0m] Finished [0;1;39mPermit User Sessions[0m.
+[[0;32m  OK  [0m] Started [0;1;39mNetwork Manager Script Dispatcher Service[0m.
+[[0;32m  OK  [0m] Started [0;1;39mSimple Desktop Display Manager[0m.
+[[0;32m  OK  [0m] Started [0;1;39mSerial Getty on ttyS0[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mLogin Prompts[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mMulti-User System[0m.
+[[0;32m  OK  [0m] Reached target [0;1;39mGraphical Interface[0m.
+[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8[!p]104\[0m[?7h[1G[0J7[32766;32766H[6n8]3008;start=26df12f190594952b0fc02df674cd875;user=root;hostname=abzos;machineid=0d7976b68e69491cb752d895d299d21f;bootid=10a41febee28451e961c04cd549c33dd;pid=550;pidfdid=337;comm=(agetty);servicename=serial-getty@ttyS0.service;invocationid=dcfcdef59cf64dff9fe52c28dad59eee;type=service\P+q6E616D65\
+abzOS 1.0 (Arch Linux - Deepin Edition) abzos ttyS0
+abzos login: root (automatic login)
+
+]3008;start=e30ddad0e27c4dc0bfaca5de2fb09e22;user=root;hostname=abzos;machineid=0d7976b68e69491cb752d895d299d21f;bootid=10a41febee28451e961c04cd549c33dd;pid=550;pidfdid=337;comm=login;targetuser=root;sessionid=1;type=session\]3008;start=dddbc947-c3df-44be-
+>>> login seen, waiting for session...
+8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# [   11.493155] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   11.523430] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   12.408585] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   12.435036] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   13.318387] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   13.345915] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   14.655743] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   14.682045] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   16.726923] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+[   16.752504] I/O error, dev fd0, sector 0 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
+echo '=== LIST_GLOBALTHEME ==='
+[?2004l]3008;start=63c4f625-6c21-4573-8756-b0be5cc4300f;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\=== LIST_GLOBALTHEME ===
+]3008;end=63c4f625-6c21-4573-8756-b0be5cc4300f;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# sudo -u abzos XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus busctl --user call org.deepin.dde.Appearance1 /org/deepin/dde/Appearance1 org.deepin.dde.Appearance1 List s globaltheme 2>&1
+[?2004l]3008;start=b433942b-e981-4afe-a7de-0f9362e03952;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\]3008;start=c888783ec3ef4b00be949a7155e45524;user=root;hostname=abzos;machineid=0d7976b68e69491cb752d895d299d21f;bootid=10a41febee28451e961c04cd549c33dd;pid=1699;pidfdid=1044;comm=sudo;targetuser=abzos;type=session\s "[{\"AvailableSize\":[],\"Comment\":\"A floral tapestry blossoms across your desktop\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/bloom/cover.png\",\"Id\":\"bloom\",\"Name\":\"bloom\",\"Path\":\"/usr/share/deepin-themes/bloom\",\"hasDark\":true},{\"AvailableSize\":[],\"Comment\":\"Like a floating cloud and flowing water\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/flow/cover.png\",\"Id\":\"flow\",\"Name\":\"flow\",\"Path\":\"/usr/share/deepin-themes/flow\",\"hasDark\":true},{\"AvailableSize\":[],\"Comment\":\"Hazy vision, the flow of inspiration\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/hazy-color/cover.png\",\"Id\":\"hazy-color\",\"Name\":\"hazy color\",\"Path\":\"/usr/share/deepin-themes/hazy-color\",\"hasDark\":true},{\"AvailableSize\":[],\"Comment\":\"A playful desktop inspired by macarons\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/macaron/cover.png\",\"Id\":\"macaron\",\"Name\":\"macaron\",\"Path\":\"/usr/share/deepin-themes/macaron\",\"hasDark\":true},{\"AvailableSize\":[],\"Comment\":\"In the light and shadow of the desktop, encounter the beauty of nirvana\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/nirvana/cover.png\",\"Id\":\"nirvana\",\"Name\":\"nirvana\",\"Path\":\"/usr/share/deepin-themes/nirvana\",\"hasDark\":true},{\"AvailableSize\":[],\"Comment\":\"Start a dreamy journey on the organic glass desktop\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/organic-glass/cover.png\",\"Id\":\"organic-glass\",\"Name\":\"organic glass\",\"Path\":\"/usr/share/deepin-themes/organic-glass\",\"hasDark\":true},{\"AvailableSize\":[],\"Comment\":\" Return to the essence, simplicity without being simplistic\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/origin/cover.png\",\"Id\":\"origin\",\"Name\":\"origin\",\"Path\":\"/usr/share/deepin-themes/origin\",\"hasDark\":true},{\"AvailableSize\":[],\"Comment\":\"Geometric puzzles assemble a playful desktop realm\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/square/cover.png\",\"Id\":\"square\",\"Name\":\"square\",\"Path\":\"/usr/share/deepin-themes/square\",\"hasDark\":true},{\"AvailableSize\":[],\"Comment\":\"Vintage charm, casting a nostalgic glow on the old days of the desktop\",\"Deletable\":false,\"Example\":\"/usr/share/deepin-themes/vintage/cover.png\",\"Id\":\"vintage\",\"Name\":\"vintage\",\"Path\":\"/usr/share/deepin-themes/vintage\",\"hasDark\":true}]"
+]3008;end=c888783ec3ef4b00be949a7155e45524\]3008;end=b433942b-e981-4afe-a7de-0f9362e03952;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# echo '=== LIST_GTK ==='
+[?2004l]3008;start=e3d97787-569a-44de-9137-4e74e4633c39;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\=== LIST_GTK ===
+]3008;end=e3d97787-569a-44de-9137-4e74e4633c39;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# sudo -u abzos XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus busctl --user call org.deepin.dde.Appearance1 /org/deepin/dde/Appearance1 org.deepin.dde.Appearance1 List s gtk 2>&1
+[?2004l]3008;start=e57c0995-f428-4ad6-8ac1-1763562dd60a;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\]3008;start=d73dcb99aafb4ffdb682a12257cbcd76;user=root;hostname=abzos;machineid=0d7976b68e69491cb752d895d299d21f;bootid=10a41febee28451e961c04cd549c33dd;pid=1714;pidfdid=1055;comm=sudo;targetuser=abzos;type=session\s "[{\"AvailableSize\":[],\"Comment\":\"\",\"Deletable\":false,\"Example\":\"\",\"Id\":\"deepin\",\"Name\":\"\",\"Path\":\"/usr/share/themes/deepin\",\"hasDark\":false},{\"AvailableSize\":[],\"Comment\":\"\",\"Deletable\":false,\"Example\":\"\",\"Id\":\"deepin-dark\",\"Name\":\"\",\"Path\":\"/usr/share/themes/deepin-dark\",\"hasDark\":false}]"
+]3008;end=d73dcb99aafb4ffdb682a12257cbcd76\]3008;end=e57c0995-f428-4ad6-8ac1-1763562dd60a;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# echo '=== DOCK_DAEMON_INTROSPECT ==='
+[?2004l]3008;start=e7d72e84-d532-43cb-aa4b-e1793cab4e69;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\=== DOCK_DAEMON_INTROSPECT ===
+]3008;end=e7d72e84-d532-43cb-aa4b-e1793cab4e69;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# sudo -u abzos XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus busctl --user introspect org.deepin.dde.daemon.Dock1 /org/deepin/dde/daemon/Dock1 2>&1
+[?2004l]3008;start=f00ecb4c-a72e-4ea6-b313-8a2cb3ad7b44;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\]3008;start=54d6a9e540ce4a7d9d85144cff7bf817;user=root;hostname=abzos;machineid=0d7976b68e69491cb752d895d299d21f;bootid=10a41febee28451e961c04cd549c33dd;pid=1728;pidfdid=1063;comm=sudo;targetuser=abzos;type=session\[4mNAME                               [0m[4m [0m[4mTYPE     [0m[4m [0m[4mSIGNATURE[0m[4m [0m[4mRESULT/VALUE [0m[4m [0m[4mFLAGS                [0m
+[0;1;39morg.deepin.dde.Dock1               [0m interface [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.GetLoadedPlugins                   method    [0;38:5:245m-        [0m as            [0;38:5:245m-                    [0m
+.ReloadPlugins                      method    [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.callShow                           method    [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.getPluginKey                       method    s         s             [0;38:5:245m-                    [0m
+.getPluginVisible                   method    s         b             [0;38:5:245m-                    [0m
+.plugins                            method    [0;38:5:245m-        [0m a(sssssb)     [0;38:5:245m-                    [0m
+.resizeDock                         method    ib        [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.setItemOnDock                      method    ssb       [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.setPluginVisible                   method    sb        [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.geometry                           property  (iiii)    0 752 1280 48 emits-change
+.showInPrimary                      property  b         true          emits-change writable
+.pluginVisibleChanged               signal    sb        [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.pluginsChanged                     signal    [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+[0;1;39morg.deepin.dde.daemon.Dock1        [0m interface [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.ActivateWindow                     method    u         [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.IsDocked                           method    s         b             [0;38:5:245m-                    [0m
+.RequestDock                        method    si        b             [0;38:5:245m-                    [0m
+.RequestUndock                      method    s         b             [0;38:5:245m-                    [0m
+.DisplayMode                        property  i         0             emits-change writable
+.FrontendWindowRect                 property  (iiii)    0 752 1280 48 emits-change
+.HideMode                           property  i         0             emits-change writable
+.HideState                          property  i         1             emits-change
+.Locked                             property  b         false         emits-change writable
+.Position                           property  i         2             emits-change writable
+.WindowSizeEfficient                property  u         48            emits-change writable
+.WindowSizeFashion                  property  u         48            emits-change writable
+.DisplayModeChanged                 signal    i         [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.FrontendWindowRectChanged          signal    (iiii)    [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.HideModeChanged                    signal    i         [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.LockedChanged                      signal    b         [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.PositionChanged                    signal    i         [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.WindowSizeEfficientChanged         signal    u         [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.WindowSizeFashionChanged           signal    u         [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+[0;1;39morg.freedesktop.DBus.Introspectable[0m interface [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.Introspect                         method    [0;38:5:245m-        [0m s             [0;38:5:245m-                    [0m
+[0;1;39morg.freedesktop.DBus.Peer          [0m interface [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.GetMachineId                       method    [0;38:5:245m-        [0m s             [0;38:5:245m-                    [0m
+.Ping                               method    [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+[0;1;39morg.freedesktop.DBus.Properties    [0m interface [0;38:5:245m-        [0m [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.Get                                method    ss        v             [0;38:5:245m-                    [0m
+.GetAll                             method    s         a{sv}         [0;38:5:245m-                    [0m
+.Set                                method    ssv       [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+.PropertiesChanged                  signal    sa{sv}as  [0;38:5:245m-            [0m [0;38:5:245m-                    [0m
+]3008;end=54d6a9e540ce4a7d9d85144cff7bf817\]3008;end=f00ecb4c-a72e-4ea6-b313-8a2cb3ad7b44;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# echo '=== SET_DARK_TEST ==='
+[?2004l]3008;start=01a04fcc-d06d-456c-9d59-434ad7b32d94;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\=== SET_DARK_TEST ===
+]3008;end=01a04fcc-d06d-456c-9d59-434ad7b32d94;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# sudo -u abzos XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus busctl --user call org.deepin.dde.Appearance1 /org/deepin/dde/Appearance1 org.deepin.dde.Appearance1 Set ss globaltheme nirvana.dark 2>&1
+[?2004l]3008;start=01718d10-664f-402c-8d06-7627463a7f99;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\]3008;start=3fb53d14f9da48288f4b471fedbc869d;user=root;hostname=abzos;machineid=0d7976b68e69491cb752d895d299d21f;bootid=10a41febee28451e961c04cd549c33dd;pid=1741;pidfdid=4769;comm=sudo;targetuser=abzos;type=session\]3008;end=3fb53d14f9da48288f4b471fedbc869d\]3008;end=01718d10-664f-402c-8d06-7627463a7f99;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# echo '=== PROBE_DONE ==='
+[?2004l]3008;start=7af84d00-34b2-410c-8924-3495b890ae6a;type=command;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\=== PROBE_DONE ===
+]3008;end=7af84d00-34b2-410c-8924-3495b890ae6a;exit=success\]3008;start=dddbc947-c3df-44be-8981-4c7baf23a7ef;type=shell;machineid=0d7976b68e69491cb752d895d299d21f;user=root;hostname=abzos;bootid=10a41feb-ee28-451e-961c-04cd549c33dd;pid=884;cwd=/root\[?2004h[root@abzos ~]# saved probe screenshot

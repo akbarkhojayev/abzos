@@ -17,7 +17,7 @@ print(f"[*] Exporting container {cid} and streaming to mksquashfs...")
 p_in = subprocess.Popen(['docker', 'export', cid], stdout=subprocess.PIPE, bufsize=1048576)
 p_out = subprocess.Popen([
     'mksquashfs', '-', squashfs_path,
-    '-tar', '-comp', 'xz', '-b', '1048576', '-noappend',
+    '-tar', '-comp', 'zstd', '-Xcompression-level', '19', '-b', '1048576', '-noappend',
     '-wildcards', '-e', 'boot'
 ], stdin=subprocess.PIPE, bufsize=1048576)
 
